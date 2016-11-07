@@ -1,0 +1,32 @@
+{
+    "name": "vovchok/novaposhta-sdk",
+    "type": "library",
+    "description": "An NovaPoshta SDK for PHP. Use the NovaPoshta API in your PHP projects.",
+    "keywords": ["API", "NovaPoshta", "SDK"],
+    "homepage": "https://github.com/vovchok/novaposhta-sdk",
+    "license": "MIT",
+    "require": {
+        "guzzlehttp/guzzle": "^6.2",
+        "symfony/serializer": "^3.1",
+        "symfony/property-access": "^3.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.6"
+    },
+    "authors": [
+        {
+            "name": "Volodymyr Vovchok",
+            "email": "wovchok@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "NovaPoshta\\" : "src/NovaPoshta/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "NovaPoshtaTest\\" : "tests/NovaPoshtaTest/"
+        }
+    }
+}
