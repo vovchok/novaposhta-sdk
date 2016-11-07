@@ -23,4 +23,12 @@ class CommonService extends Service
             $properties
         );
     }
+
+    public function getCargoTypes()
+    {
+        return $this->makeRequest(
+            'getCargoTypes',
+            \NovaPoshta\References\Responses\CargoTypesResponse::class
+        );
+    }
 }
