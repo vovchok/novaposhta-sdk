@@ -4,4 +4,5 @@ NovaPoshta SDK
 
 ## API
 
-  - Addresses
+  - Addresses / Адреса
+  - References / Справочники
