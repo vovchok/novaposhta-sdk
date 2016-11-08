@@ -89,4 +89,12 @@ class CommonService extends Service
             \NovaPoshta\References\Responses\TypesOfCounterpartiesResponse::class
         );
     }
+
+    public function getTraysList()
+    {
+        return $this->makeRequest(
+            'getTraysList',
+            \NovaPoshta\References\Responses\TraysListResponse::class
+        );
+    }
 }
