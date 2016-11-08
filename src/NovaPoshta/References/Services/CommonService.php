@@ -105,4 +105,12 @@ class CommonService extends Service
             \NovaPoshta\References\Responses\PaymentFormsResponse::class
         );
     }
+
+    public function getOwnershipFormsList()
+    {
+        return $this->makeRequest(
+            'getOwnershipFormsList',
+            \NovaPoshta\References\Responses\OwnershipFormsListResponse::class
+        );
+    }
 }
