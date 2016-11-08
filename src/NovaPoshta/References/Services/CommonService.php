@@ -97,4 +97,12 @@ class CommonService extends Service
             \NovaPoshta\References\Responses\TraysListResponse::class
         );
     }
+
+    public function getPaymentForms()
+    {
+        return $this->makeRequest(
+            'getPaymentForms',
+            \NovaPoshta\References\Responses\PaymentFormsResponse::class
+        );
+    }
 }
