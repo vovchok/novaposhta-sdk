@@ -5,6 +5,7 @@ namespace NovaPoshta\References\Services;
 use NovaPoshta\Configuration;
 use NovaPoshta\Services\Service;
 use NovaPoshta\References\Properties\TimeIntervalMethodProperties;
+use NovaPoshta\References\Properties\CargoDescriptionMethodProperties;
 
 class CommonService extends Service
 {
@@ -61,6 +62,15 @@ class CommonService extends Service
         return $this->makeRequest(
             'getTiresWheelsList',
             \NovaPoshta\References\Responses\TiresWheelsListResponse::class
+        );
+    }
+
+    public function getCargoDescriptionList(CargoDescriptionMethodProperties $properties)
+    {
+        return $this->makeRequest(
+            'getCargoDescriptionList',
+            \NovaPoshta\References\Responses\CargoDescriptionListResponse::class,
+            $properties
         );
     }
 }
