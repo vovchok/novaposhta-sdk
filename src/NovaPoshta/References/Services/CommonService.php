@@ -81,4 +81,12 @@ class CommonService extends Service
             \NovaPoshta\References\Responses\ServiceTypesResponse::class
         );
     }
+
+    public function getTypesOfCounterparties()
+    {
+        return $this->makeRequest(
+            'getTypesOfCounterparties',
+            \NovaPoshta\References\Responses\TypesOfCounterpartiesResponse::class
+        );
+    }
 }
