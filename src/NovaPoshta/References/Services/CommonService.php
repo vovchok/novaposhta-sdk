@@ -55,4 +55,12 @@ class CommonService extends Service
             \NovaPoshta\References\Responses\TypesOfPayersForRedeliveryResponse::class
         );
     }
+
+    public function getTiresWheelsList()
+    {
+        return $this->makeRequest(
+            'getTiresWheelsList',
+            \NovaPoshta\References\Responses\TiresWheelsListResponse::class
+        );
+    }
 }
