@@ -31,4 +31,12 @@ class CommonService extends Service
             \NovaPoshta\References\Responses\CargoTypesResponse::class
         );
     }
+
+    public function getBackwardDeliveryCargoTypes()
+    {
+        return $this->makeRequest(
+            'getBackwardDeliveryCargoTypes',
+            \NovaPoshta\References\Responses\BackwardDeliveryCargoTypesResponse::class
+        );
+    }
 }
