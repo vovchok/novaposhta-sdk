@@ -73,4 +73,12 @@ class CommonService extends Service
             $properties
         );
     }
+
+    public function getServiceTypes()
+    {
+        return $this->makeRequest(
+            'getServiceTypes',
+            \NovaPoshta\References\Responses\ServiceTypesResponse::class
+        );
+    }
 }
