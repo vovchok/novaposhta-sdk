@@ -8,6 +8,7 @@ use NovaPoshta\Services\Service;
 use NovaPoshta\Counterparties\Properties\CounterpartyMethodProperties;
 use NovaPoshta\Counterparties\Properties\CounterpartyAddressesMethodProperties;
 use NovaPoshta\Counterparties\Properties\CounterpartyOptionsMethodProperties;
+use NovaPoshta\Counterparties\Properties\CounterpartyContactPersonMethodProperties;
 
 
 class CounterpartyService extends Service
@@ -42,6 +43,15 @@ class CounterpartyService extends Service
         return $this->makeRequest(
             'getCounterpartyOptions',
             \NovaPoshta\Counterparties\Responses\CounterpartyOptionsResponse::class,
+            $properties
+        );
+    }
+
+    public function getCounterpartyContactPerson(CounterpartyContactPersonMethodProperties $properties)
+    {
+        return $this->makeRequest(
+            'getCounterpartyContactPerson',
+            \NovaPoshta\Counterparties\Responses\CounterpartyContactPersonResponse::class,
             $properties
         );
     }
