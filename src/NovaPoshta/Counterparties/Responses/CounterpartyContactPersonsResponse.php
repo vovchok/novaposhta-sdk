@@ -5,7 +5,7 @@ namespace NovaPoshta\Counterparties\Responses;
 use NovaPoshta\Responses\Response;
 use NovaPoshta\Counterparties\Models\ContactPerson;
 
-class CounterpartyContactPersonResponse extends Response
+class CounterpartyContactPersonsResponse extends Response
 {
     protected $data;
 
