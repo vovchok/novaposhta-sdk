@@ -85,4 +85,14 @@ class CounterpartyMethodProperties extends MethodProperties
     {
         $this->__get('CounterpartyProperty');
     }
+
+    public function setOwnershipForm($ownershipForm)
+    {
+        $this->__set('OwnershipForm', $ownershipForm);
+    }
+
+    public function getOwnershipForm()
+    {
+        $this->__get('OwnershipForm');
+    }
 }
