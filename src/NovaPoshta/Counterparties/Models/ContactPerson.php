@@ -55,4 +55,24 @@ class ContactPerson extends Model
     {
         $this->__set('MiddleName', $middleName);
     }
+
+    public function getPhones()
+    {
+        return $this->__get('Phones');
+    }
+
+    public function setPhones($phones)
+    {
+        $this->__set('Phones', $phones);
+    }
+
+    public function getEmail()
+    {
+        return $this->__get('Email');
+    }
+
+    public function setEmail($email)
+    {
+        $this->__set('Email', $email);
+    }
 }
