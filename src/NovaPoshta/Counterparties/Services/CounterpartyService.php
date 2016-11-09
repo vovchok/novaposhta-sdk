@@ -3,8 +3,11 @@
 namespace NovaPoshta\Counterparties\Services;
 
 use NovaPoshta\Configuration;
-use NovaPoshta\Counterparties\Properties\CounterpartyMethodProperties;
 use NovaPoshta\Services\Service;
+
+use NovaPoshta\Counterparties\Properties\CounterpartyMethodProperties;
+use NovaPoshta\Counterparties\Properties\CounterpartyAddressesMethodProperties;
+
 
 class CounterpartyService extends Service
 {
@@ -20,6 +23,15 @@ class CounterpartyService extends Service
         return $this->makeRequest(
             'save',
             \NovaPoshta\Counterparties\Responses\CounterpartySaveResponse::class,
+            $properties
+        );
+    }
+
+    public function getCounterpartyAddresses(CounterpartyAddressesMethodProperties $properties)
+    {
+        return $this->makeRequest(
+            'getCounterpartyAddresses',
+            \NovaPoshta\Counterparties\Responses\CounterpartyAddressesResponse::class,
             $properties
         );
     }
