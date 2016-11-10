@@ -1,13 +1,13 @@
 <?php
 
-namespace NovaPoshta\Address\Services;
+namespace NovaPoshta\Addresses\Services;
 
 use NovaPoshta\Configuration;
 use NovaPoshta\Services\Service;
 
-use NovaPoshta\Address\Properties\CounterpartyMethodProperties;
-use NovaPoshta\Address\Properties\CitiesMethodProperties;
-use NovaPoshta\Address\Properties\StreetMethodProperties;
+use NovaPoshta\Addresses\Properties\CounterpartyMethodProperties;
+use NovaPoshta\Addresses\Properties\CitiesMethodProperties;
+use NovaPoshta\Addresses\Properties\StreetMethodProperties;
 
 class AddressService extends Service
 {
@@ -22,7 +22,7 @@ class AddressService extends Service
     {
         return $this->makeRequest(
             'save',
-            \NovaPoshta\Address\Responses\CounterpartyAddressResponse::class,
+            \NovaPoshta\Addresses\Responses\CounterpartyAddressResponse::class,
             $properties
         );
     }
@@ -31,7 +31,7 @@ class AddressService extends Service
     {
         return $this->makeRequest(
             'update',
-            \NovaPoshta\Address\Responses\CounterpartyAddressResponse::class,
+            \NovaPoshta\Addresses\Responses\CounterpartyAddressResponse::class,
             $properties
         );
     }
@@ -40,7 +40,7 @@ class AddressService extends Service
     {
         return $this->makeRequest(
             'delete',
-            \NovaPoshta\Address\Responses\CounterpartyAddressDeleteResponse::class,
+            \NovaPoshta\Addresses\Responses\CounterpartyAddressDeleteResponse::class,
             $properties
         );
     }
@@ -49,7 +49,7 @@ class AddressService extends Service
     {
         return $this->makeRequest(
             'getAreas',
-            \NovaPoshta\Address\Responses\OblastResponse::class
+            \NovaPoshta\Addresses\Responses\OblastResponse::class
         );
     }
 
@@ -57,7 +57,7 @@ class AddressService extends Service
     {
         return $this->makeRequest(
             'getCities',
-            \NovaPoshta\Address\Responses\CityResponse::class,
+            \NovaPoshta\Addresses\Responses\CityResponse::class,
             $properties
         );
     }
@@ -66,7 +66,7 @@ class AddressService extends Service
     {
         return $this->makeRequest(
             'getStreet',
-            \NovaPoshta\Address\Responses\StreetResponse::class,
+            \NovaPoshta\Addresses\Responses\StreetResponse::class,
             $properties
         );
     }

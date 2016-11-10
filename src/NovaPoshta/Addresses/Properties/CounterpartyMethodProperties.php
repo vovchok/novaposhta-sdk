@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaPoshta\Address\Properties;
+namespace NovaPoshta\Addresses\Properties;
 
 use NovaPoshta\Properties\MethodProperties;
 

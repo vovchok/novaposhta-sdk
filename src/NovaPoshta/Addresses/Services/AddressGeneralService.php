@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaPoshta\Address\Services;
+namespace NovaPoshta\Addresses\Services;
 
 use NovaPoshta\Properties\MethodProperties;
 use NovaPoshta\Configuration;
@@ -19,7 +19,7 @@ class AddressGeneralService extends Service
     {
         return $this->makeRequest(
             'getSettlements',
-            \NovaPoshta\Address\Responses\SettlementResponse::class,
+            \NovaPoshta\Addresses\Responses\SettlementResponse::class,
             $properties
         );
     }
@@ -28,7 +28,7 @@ class AddressGeneralService extends Service
     {
         return $this->makeRequest(
             'getWarehouses',
-            \NovaPoshta\Address\Responses\WarehouseResponse::class,
+            \NovaPoshta\Addresses\Responses\WarehouseResponse::class,
             $properties
         );
     }
@@ -37,7 +37,7 @@ class AddressGeneralService extends Service
     {
         return $this->makeRequest(
             'getWarehouseTypes',
-            \NovaPoshta\Address\Responses\WarehouseTypeResponse::class
+            \NovaPoshta\Addresses\Responses\WarehouseTypeResponse::class
         );
     }
 }
