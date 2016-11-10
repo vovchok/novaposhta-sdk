@@ -7,3 +7,4 @@ NovaPoshta SDK
   - Addresses / Адреса
   - References / Справочники
   - Counterparties / Контрагенты
+  - Registries / Реестры
