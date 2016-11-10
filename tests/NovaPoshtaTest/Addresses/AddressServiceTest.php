@@ -2,14 +2,17 @@
 
 namespace NovaPoshtaTest\Address;
 
-use NovaPoshta\Address\Services\AddressService;
-use NovaPoshta\Address\Properties\CitiesMethodProperties;
-use NovaPoshta\Address\Properties\StreetMethodProperties;
-use NovaPoshta\Address\Properties\CounterpartyMethodProperties;
+use NovaPoshta\Addresses\Services\AddressService;
+use NovaPoshta\Addresses\Properties\CitiesMethodProperties;
+use NovaPoshta\Addresses\Properties\StreetMethodProperties;
+use NovaPoshta\Addresses\Properties\CounterpartyMethodProperties;
 
 use NovaPoshta\Configuration;
 use NovaPoshta\ContentTypes;
 
+/**
+ * @group AddressService
+ */
 class AddressServiceTest extends \PHPUnit_Framework_TestCase
 {
     protected static $service;

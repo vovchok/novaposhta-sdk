@@ -1,14 +1,17 @@
 <?php
 
-namespace NovaPoshtaTest\Address;
+namespace NovaPoshtaTest\Addresses;
 
-use NovaPoshta\Address\Services\AddressGeneralService;
-use NovaPoshta\Address\Properties\SettlementsMethodProperties;
-use NovaPoshta\Address\Properties\WarehouseMethodProperties;
+use NovaPoshta\Addresses\Services\AddressGeneralService;
+use NovaPoshta\Addresses\Properties\SettlementsMethodProperties;
+use NovaPoshta\Addresses\Properties\WarehouseMethodProperties;
 
 use NovaPoshta\Configuration;
 use NovaPoshta\ContentTypes;
 
+/**
+ * @group AddressGeneralService
+ */
 class AddressGeneralServiceTest extends \PHPUnit_Framework_TestCase
 {
 
