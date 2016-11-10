@@ -7,6 +7,7 @@ use NovaPoshta\Services\Service;
 
 use NovaPoshta\Counterparties\Properties\ContactPersonMethodProperties;
 use NovaPoshta\Counterparties\Properties\ContactPersonUpdateMethodProperties;
+use NovaPoshta\Counterparties\Properties\ContactPersonDeleteMethodProperties;
 
 class ContactPersonService extends Service
 {
@@ -31,6 +32,15 @@ class ContactPersonService extends Service
         return $this->makeRequest(
             'update',
             \NovaPoshta\Counterparties\Responses\ContactPersonSaveResponse::class,
+            $properties
+        );
+    }
+
+    public function delete(ContactPersonDeleteMethodProperties $properties)
+    {
+        return $this->makeRequest(
+            'delete',
+            \NovaPoshta\Counterparties\Responses\ContactPersonDeleteResponse::class,
             $properties
         );
     }
