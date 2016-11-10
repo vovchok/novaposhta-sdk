@@ -25,4 +25,14 @@ class CounterpartiesMethodProperties extends MethodProperties
     {
         $this->__get('Page');
     }
+
+    public function setEDRPOU($EDRPOU)
+    {
+        $this->__set('EDRPOU', $EDRPOU);
+    }
+
+    public function getEDRPOU()
+    {
+        $this->__get('EDRPOU');
+    }
 }
