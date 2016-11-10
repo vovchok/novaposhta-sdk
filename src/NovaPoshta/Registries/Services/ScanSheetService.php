@@ -6,6 +6,7 @@ use NovaPoshta\Configuration;
 use NovaPoshta\Services\Service;
 
 use NovaPoshta\Registries\Properties\InsertDocumentsMethodProperties;
+use NovaPoshta\Registries\Properties\ScanSheetMethodProperties;
 
 class ScanSheetService extends Service
 {
@@ -21,6 +22,15 @@ class ScanSheetService extends Service
         return $this->makeRequest(
             'insertDocuments',
             \NovaPoshta\Registries\Responses\InsertDocumentsResponse::class,
+            $properties
+        );
+    }
+
+    public function getScanSheet(ScanSheetMethodProperties $properties)
+    {
+        return $this->makeRequest(
+            'getScanSheet',
+            \NovaPoshta\Registries\Responses\ScanSheetResponse::class,
             $properties
         );
     }
