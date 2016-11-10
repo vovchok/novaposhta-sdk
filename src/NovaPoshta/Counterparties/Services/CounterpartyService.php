@@ -10,6 +10,7 @@ use NovaPoshta\Counterparties\Properties\CounterpartyAddressesMethodProperties;
 use NovaPoshta\Counterparties\Properties\CounterpartyOptionsMethodProperties;
 use NovaPoshta\Counterparties\Properties\CounterpartyContactPersonsMethodProperties;
 use NovaPoshta\Counterparties\Properties\CounterpartiesMethodProperties;
+use NovaPoshta\Counterparties\Properties\CounterpartyUpdateMethodProperties;
 
 class CounterpartyService extends Service
 {
@@ -24,6 +25,15 @@ class CounterpartyService extends Service
     {
         return $this->makeRequest(
             'save',
+            \NovaPoshta\Counterparties\Responses\CounterpartySaveResponse::class,
+            $properties
+        );
+    }
+
+    public function update(CounterpartyUpdateMethodProperties $properties)
+    {
+        return $this->makeRequest(
+            'update',
             \NovaPoshta\Counterparties\Responses\CounterpartySaveResponse::class,
             $properties
         );
