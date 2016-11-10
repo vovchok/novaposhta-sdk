@@ -11,6 +11,7 @@ use NovaPoshta\Counterparties\Properties\CounterpartyOptionsMethodProperties;
 use NovaPoshta\Counterparties\Properties\CounterpartyContactPersonsMethodProperties;
 use NovaPoshta\Counterparties\Properties\CounterpartiesMethodProperties;
 use NovaPoshta\Counterparties\Properties\CounterpartyUpdateMethodProperties;
+use NovaPoshta\Counterparties\Properties\CounterpartyDeleteMethodProperties;
 
 class CounterpartyService extends Service
 {
@@ -35,6 +36,15 @@ class CounterpartyService extends Service
         return $this->makeRequest(
             'update',
             \NovaPoshta\Counterparties\Responses\CounterpartySaveResponse::class,
+            $properties
+        );
+    }
+
+    public function delete(CounterpartyDeleteMethodProperties $properties)
+    {
+        return $this->makeRequest(
+            'delete',
+            \NovaPoshta\Counterparties\Responses\CounterpartyDeleteResponse::class,
             $properties
         );
     }
