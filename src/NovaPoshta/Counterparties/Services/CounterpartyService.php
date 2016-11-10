@@ -35,7 +35,7 @@ class CounterpartyService extends Service
     {
         return $this->makeRequest(
             'update',
-            \NovaPoshta\Counterparties\Responses\CounterpartySaveResponse::class,
+            \NovaPoshta\Counterparties\Responses\CounterpartyUpdateResponse::class,
             $properties
         );
     }
