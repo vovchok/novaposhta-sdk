@@ -115,4 +115,14 @@ class Organization extends Model
     {
         $this->__set('City', $city);
     }
+
+    public function getPhones()
+    {
+        return $this->__get('Phones');
+    }
+
+    public function setPhones($phones)
+    {
+        $this->__set('Phones', $phones);
+    }
 }
