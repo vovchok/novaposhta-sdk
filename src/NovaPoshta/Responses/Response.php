@@ -11,9 +11,12 @@ class Response
     protected $messageCodes;
     protected $errorCodes;
     protected $infoCodes;
+    protected $data = [];
+    private $className;
 
-    public function __construct()
+    public function __construct( $className )
     {
+        $this->className = $className;
     }
 
     public function setSuccess($success)
@@ -84,5 +87,27 @@ class Response
     public function setInfoCodes($infoCodes)
     {
         $this->infoCodes = $infoCodes;
+    }
+
+    public function setData($data)
+    {
+        if (empty($data)) {
+            return;
+        }
+
+        if (isset($data['item'])) {
+            $data = $data['item'];
+        }
+
+        foreach ($data as $key => $values) {
+            $this->data[] = new $this->className(
+                $values
+            );
+        }
+    }
+
+    public function getData()
+    {
+        return $this->data;
     }
 }
