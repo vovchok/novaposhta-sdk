@@ -34,4 +34,12 @@ class ScanSheetService extends Service
             $properties
         );
     }
+
+    public function getScanSheetList()
+    {
+        return $this->makeRequest(
+            'getScanSheetList',
+            \NovaPoshta\Registries\Responses\ScanSheetListResponse::class
+        );
+    }
 }
