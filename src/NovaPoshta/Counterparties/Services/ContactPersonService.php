@@ -31,7 +31,7 @@ class ContactPersonService extends Service
     {
         return $this->makeRequest(
             'update',
-            \NovaPoshta\Counterparties\Responses\ContactPersonSaveResponse::class,
+            \NovaPoshta\Counterparties\Responses\ContactPersonUpdateResponse::class,
             $properties
         );
     }
