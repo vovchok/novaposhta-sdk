@@ -7,6 +7,7 @@ use NovaPoshta\Services\Service;
 
 use NovaPoshta\Registries\Properties\InsertDocumentsMethodProperties;
 use NovaPoshta\Registries\Properties\ScanSheetMethodProperties;
+use NovaPoshta\Registries\Properties\DeleteScanSheetMethodProperties;
 
 class ScanSheetService extends Service
 {
@@ -40,6 +41,15 @@ class ScanSheetService extends Service
         return $this->makeRequest(
             'getScanSheetList',
             \NovaPoshta\Registries\Responses\ScanSheetListResponse::class
+        );
+    }
+
+    public function deleteScanSheet(DeleteScanSheetMethodProperties $properties)
+    {
+        return $this->makeRequest(
+            'deleteScanSheet',
+            \NovaPoshta\Registries\Responses\DeleteScanSheetResponse::class,
+            $properties
         );
     }
 }
