@@ -7,6 +7,7 @@ use NovaPoshta\Services\Service;
 
 use NovaPoshta\ExpressWaybill\Properties\DocumentPriceMethodProperties;
 use NovaPoshta\ExpressWaybill\Properties\DocumentDeliveryDateMethodProperties;
+use NovaPoshta\ExpressWaybill\Properties\DocumentSaveMethodProperties;
 
 class InternetDocumentService extends Service
 {
@@ -31,6 +32,15 @@ class InternetDocumentService extends Service
         return $this->makeRequest(
             'getDocumentDeliveryDate',
             \NovaPoshta\ExpressWaybill\Responses\DocumentDeliveryDateResponse::class,
+            $properties
+        );
+    }
+
+    public function save(DocumentSaveMethodProperties $properties)
+    {
+        return $this->makeRequest(
+            'save',
+            \NovaPoshta\ExpressWaybill\Responses\DocumentSaveResponse::class,
             $properties
         );
     }
