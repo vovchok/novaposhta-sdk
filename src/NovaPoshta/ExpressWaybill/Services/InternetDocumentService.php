@@ -44,4 +44,13 @@ class InternetDocumentService extends Service
             $properties
         );
     }
+
+    public function saveWithPochtomatAddress(MethodProperties $properties)
+    {
+        return $this->makeRequest(
+            'save',
+            \NovaPoshta\ExpressWaybill\Responses\DocumentPochtomatSaveResponse::class,
+            $properties
+        );
+    }
 }
