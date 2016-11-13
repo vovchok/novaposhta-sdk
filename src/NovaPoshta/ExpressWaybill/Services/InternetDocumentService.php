@@ -10,6 +10,7 @@ use NovaPoshta\ExpressWaybill\Properties\DocumentDeliveryDateMethodProperties;
 use NovaPoshta\Properties\MethodProperties;
 use NovaPoshta\ExpressWaybill\Properties\DocumentUpdateMethodProperties;
 use NovaPoshta\ExpressWaybill\Properties\DocumentListMethodProperties;
+use NovaPoshta\ExpressWaybill\Properties\DocumentDeleteMethodProperties;
 
 class InternetDocumentService extends Service
 {
@@ -70,6 +71,15 @@ class InternetDocumentService extends Service
         return $this->makeRequest(
             'getDocumentList',
             \NovaPoshta\ExpressWaybill\Responses\DocumentListResponse::class,
+            $properties
+        );
+    }
+
+    public function delete(DocumentDeleteMethodProperties $properties)
+    {
+        return $this->makeRequest(
+            'delete',
+            \NovaPoshta\ExpressWaybill\Responses\DocumentDeleteResponse::class,
             $properties
         );
     }
