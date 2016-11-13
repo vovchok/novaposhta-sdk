@@ -11,6 +11,7 @@ use NovaPoshta\Properties\MethodProperties;
 use NovaPoshta\ExpressWaybill\Properties\DocumentUpdateMethodProperties;
 use NovaPoshta\ExpressWaybill\Properties\DocumentListMethodProperties;
 use NovaPoshta\ExpressWaybill\Properties\DocumentDeleteMethodProperties;
+use NovaPoshta\ExpressWaybill\Properties\GenerateReportMethodProperties;
 
 class InternetDocumentService extends Service
 {
@@ -80,6 +81,15 @@ class InternetDocumentService extends Service
         return $this->makeRequest(
             'delete',
             \NovaPoshta\ExpressWaybill\Responses\DocumentDeleteResponse::class,
+            $properties
+        );
+    }
+
+    public function generateReport(GenerateReportMethodProperties $properties)
+    {
+        return $this->makeRequest(
+            'generateReport',
+            \NovaPoshta\ExpressWaybill\Responses\GenerateReportResponse::class,
             $properties
         );
     }
