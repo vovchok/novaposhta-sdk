@@ -6,6 +6,16 @@ use NovaPoshta\Properties\MethodProperties;
 
 class GenerateReportMethodProperties extends MethodProperties
 {
+    public function setDateTime($DateTime)
+    {
+        $this->__set('DateTime', $DateTime);
+    }
+
+    public function getDateTime()
+    {
+        $this->__get('DateTime');
+    }
+
     public function setDocumentRefs($documentRefs)
     {
         $this->__set('DocumentRefs', $documentRefs);
