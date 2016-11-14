@@ -32,7 +32,7 @@ class Configuration
         switch ($contentType) {
             case ContentTypes::JSON :
                 return [
-                    'json_encode_options' => JSON_FORCE_OBJECT
+                //    'json_encode_options' => JSON_FORCE_OBJECT
                 ];
             case ContentTypes::XML :
                 return [
