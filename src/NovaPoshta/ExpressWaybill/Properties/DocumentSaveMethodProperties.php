@@ -205,4 +205,14 @@ class DocumentSaveMethodProperties extends MethodProperties
     {
         $this->__get('RecipientsPhone');
     }
+
+    public function setBackwardDeliveryData($BackwardDeliveryData)
+    {
+        $this->__set('BackwardDeliveryData', $BackwardDeliveryData);
+    }
+
+    public function getBackwardDeliveryData()
+    {
+        $this->__get('BackwardDeliveryData');
+    }
 }
