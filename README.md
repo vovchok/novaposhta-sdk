@@ -8,3 +8,4 @@ NovaPoshta SDK
   - References / Справочники
   - Counterparties / Контрагенты
   - Registries / Реестры
+  - ExpressWaybill / Экспресс-накладная
