@@ -5,6 +5,8 @@ namespace NovaPoshtaTest\ExpressWaybill;
 use NovaPoshta\Configuration;
 use NovaPoshta\ContentTypes;
 
+use NovaPoshta\ExpressWaybill\Properties\BackwardDeliveryDataMethodProperties;
+use NovaPoshta\ExpressWaybill\Properties\ServicesMethodProperties;
 use NovaPoshta\ExpressWaybill\Services\InternetDocumentService;
 
 use NovaPoshta\ExpressWaybill\Properties\DocumentPriceMethodProperties;
@@ -361,6 +363,51 @@ class InternetDocumentServiceTest extends \PHPUnit_Framework_TestCase
         $properties->setType("Pdf");
 
         $result = self::$service->generateReport($properties);
+
+        $this->assertTrue($result->isSuccess());
+    }
+
+    /**
+     * Формирование запроса с заказом услуги «Обратная доставка документов с различными подтипами»
+     */
+    public function testDocumentSaveWithOrderService1()
+    {
+        $properties = new DocumentSaveMethodProperties();
+        $properties->setPayerType("Sender");
+        $properties->setPaymentMethod("Cash");
+        $properties->setDateTime("02.03.2016");
+        $properties->setCargoType("Cargo");
+        $properties->setVolumeGeneral("0.1");
+        $properties->setWeight(10);
+        $properties->setServiceType("WarehouseDoors");
+        $properties->setSeatsAmount(1);
+        $properties->setDescription("абажур");
+        $properties->setCost(500);
+        $properties->setCitySender("8d5a980d-391c-11dd-90d9-001a92567626");
+        $properties->setSender("6e9acced-d072-11e3-95eb-0050568046cd");
+        $properties->setSenderAddress("01ae2635-e1c2-11e3-8c4a-0050568002cf");
+        $properties->setContactSender("d0b9f592-b600-11e4-a77a-005056887b8d");
+        $properties->setSendersPhone("380678734567");
+        $properties->setCityRecipient("db5c8892-391c-11dd-90d9-001a92567626");
+        $properties->setRecipient("d00f2319-b743-11e4-a77a-005056887b8d");
+        $properties->setRecipientAddress("511fcfbd-e1c2-11e3-8c4a-0050568002cf");
+        $properties->setContactRecipient("bc7b61ea-b6eb-11e4-a77a-005056887b8d");
+        $properties->setRecipientsPhone("380631112223");
+
+        $backwardDeliveryData = new BackwardDeliveryDataMethodProperties();
+        $backwardDeliveryData->setPayerType("Sender");
+        $backwardDeliveryData->setCargoType("Documents");
+
+        $services = new ServicesMethodProperties();
+        $services->setAttorney(true);
+        $services->setWaybillNewPostWithStamp(true);
+        $services->setUserActions(ServicesMethodProperties::USER_CALL_SENDER);
+
+        $backwardDeliveryData->setServices( $services );
+
+        $properties->setBackwardDeliveryData( [ $backwardDeliveryData->getProperties() ] );
+
+        $result = self::$service->save($properties);
 
         var_dump( $result );
 
