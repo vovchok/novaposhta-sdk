@@ -7,34 +7,8 @@ use NovaPoshta\References\Models\PaymentForm;
 
 class PaymentFormsResponse extends Response
 {
-    protected $data;
-
     public function __construct()
     {
-        parent::__construct();
-        $this->data = [];
-    }
-
-    public function setData($data)
-    {
-        if (empty($data)) {
-            return;
-        }
-
-        if (isset($data['item'])) {
-            $data = $data['item'];
-        }
-
-        foreach ($data as $key => $value) {
-            $this->data[] = new PaymentForm(
-                $value['Description'],
-                $value['Ref']
-            );
-        }
-    }
-
-    public function getData()
-    {
-        return $this->data;
+        parent::__construct(PaymentForm::class);
     }
 }
