@@ -2,46 +2,37 @@
 
 namespace NovaPoshta\References\Models;
 
-class OwnershipForm
+use NovaPoshta\Models\Model;
+
+class OwnershipForm extends Model
 {
-    protected $ref;
-    protected $description;
-    protected $fullName;
-
-    public function __construct($ref, $description, $fullName)
-    {
-        $this->ref = $ref;
-        $this->description = $description;
-        $this->fullName = $fullName;
-    }
-
     public function getRef()
     {
-        return $this->ref;
+        return $this->__get('Ref');
     }
 
     public function setRef($ref)
     {
-        $this->ref = $ref;
+        $this->__set('Ref', $ref);
     }
 
     public function getDescription()
     {
-        return $this->description;
+        return $this->__get('Description');
     }
 
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->__set('Description', $description);
     }
 
     public function getFullName()
     {
-        return $this->fullName;
+        return $this->__get('FullName');
     }
 
     public function setFullName($fullName)
     {
-        $this->fullName = $fullName;
+        $this->__set('FullName', $fullName);
     }
 }

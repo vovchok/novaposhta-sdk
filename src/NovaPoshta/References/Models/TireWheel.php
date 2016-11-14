@@ -2,70 +2,57 @@
 
 namespace NovaPoshta\References\Models;
 
-class TireWheel
+use NovaPoshta\Models\Model;
+
+class TireWheel extends Model
 {
-    protected $ref;
-    protected $description;
-    protected $descriptionRu;
-    protected $wight;
-    protected $descriptionType;
-
-    public function __construct($ref, $description, $descriptionRu, $wight, $descriptionType)
-    {
-        $this->ref = $ref;
-        $this->description = $description;
-        $this->descriptionRu = $descriptionRu;
-        $this->wight = $wight;
-        $this->descriptionType = $descriptionType;
-    }
-
     public function getRef()
     {
-        return $this->ref;
+        return $this->__get('Ref');
     }
 
     public function setRef($ref)
     {
-        $this->ref = $ref;
+        $this->__set('Ref', $ref);
     }
 
     public function getDescription()
     {
-        return $this->description;
+        return $this->__get('Description');
     }
 
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->__set('Description', $description);
     }
 
     public function getDescriptionRu()
     {
-        return $this->descriptionRu;
+        return $this->__get('DescriptionRu');
     }
 
     public function setDescriptionRu($descriptionRu)
     {
-        $this->descriptionRu = $descriptionRu;
+        $this->__set('DescriptionRu', $descriptionRu);
     }
 
     public function getWight()
     {
-        return $this->wight;
+        return $this->__get('Wight');
     }
 
     public function setWight($wight)
     {
-        $this->wight = $wight;
+        $this->__set('Wight', $wight);
     }
 
     public function getDescriptionType()
     {
-        return $this->descriptionType;
+        return $this->__get('DescriptionType');
     }
 
     public function setDescriptionType($descriptionType)
     {
-        $this->descriptionType = $descriptionType;
+        $this->__set('DescriptionType', $descriptionType);
     }
 }

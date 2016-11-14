@@ -2,34 +2,27 @@
 
 namespace NovaPoshta\References\Models;
 
-class CargoType
+use NovaPoshta\Models\Model;
+
+class CargoType extends Model
 {
-    protected $description;
-    protected $ref;
-
-    public function __construct($description, $ref)
-    {
-        $this->description = $description;
-        $this->ref = $ref;
-    }
-
     public function getDescription()
     {
-        return $this->description;
+        return $this->__get('Description');
     }
 
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->__set('Description', $description);
     }
 
     public function getRef()
     {
-        return $this->ref;
+        return $this->__get('Ref');
     }
 
     public function setRef($ref)
     {
-        $this->ref = $ref;
+        $this->__set('Ref', $ref);
     }
 }

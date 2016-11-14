@@ -2,46 +2,37 @@
 
 namespace NovaPoshta\References\Models;
 
-class TimeInterval
+use NovaPoshta\Models\Model;
+
+class TimeInterval extends Model
 {
-    protected $number;
-    protected $start;
-    protected $end;
-
-    public function __construct($number, $start, $end)
-    {
-        $this->number = $number;
-        $this->start = $start;
-        $this->end = $end;
-    }
-
     public function getNumber()
     {
-        return $this->number;
+        return $this->__get('Number');
     }
 
     public function setNumber($number)
     {
-        $this->number = $number;
+        $this->__set('Number', $number);
     }
 
     public function getStart()
     {
-        return $this->start;
+        return $this->__get('Start');
     }
 
     public function setStart($start)
     {
-        $this->start = $start;
+        $this->__set('Start', $start);
     }
 
     public function getEnd()
     {
-        return $this->end;
+        return $this->__get('End');
     }
 
     public function setEnd($end)
     {
-        $this->end = $end;
+        $this->__set('End', $end);
     }
 }

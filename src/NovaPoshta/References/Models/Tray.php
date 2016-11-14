@@ -2,58 +2,47 @@
 
 namespace NovaPoshta\References\Models;
 
-class Tray
+use NovaPoshta\Models\Model;
+
+class Tray extends Model
 {
-    protected $ref;
-    protected $description;
-    protected $descriptionRu;
-    protected $weight;
-
-    public function __construct($ref, $description, $descriptionRu, $weight)
-    {
-        $this->ref = $ref;
-        $this->description = $description;
-        $this->descriptionRu = $descriptionRu;
-        $this->weight = $weight;
-    }
-
     public function getRef()
     {
-        return $this->ref;
+        return $this->__get('Ref');
     }
 
     public function setRef($ref)
     {
-        $this->ref = $ref;
+        $this->__set('Ref', $ref);
     }
 
     public function getDescription()
     {
-        return $this->description;
+        return $this->__get('Description');
     }
 
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->__set('Description', $description);
     }
 
     public function getDescriptionRu()
     {
-        return $this->descriptionRu;
+        return $this->__get('DescriptionRu');
     }
 
     public function setDescriptionRu($descriptionRu)
     {
-        $this->descriptionRu = $descriptionRu;
+        $this->__set('DescriptionRu', $descriptionRu);
     }
 
     public function getWeight()
     {
-        return $this->weight;
+        return $this->__get('Weight');
     }
 
     public function setWeight($weight)
     {
-        $this->weight = $weight;
+        $this->__set('Weight', $weight);
     }
 }
