@@ -2,9 +2,9 @@
 
 namespace NovaPoshta\Addresses\Services;
 
-use NovaPoshta\Properties\MethodProperties;
+use NovaPoshta\MethodProperties;
 use NovaPoshta\Configuration;
-use NovaPoshta\Services\Service;
+use NovaPoshta\Service;
 
 class AddressGeneralService extends Service
 {

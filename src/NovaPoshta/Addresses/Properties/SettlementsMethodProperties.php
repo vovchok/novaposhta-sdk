@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\Addresses\Properties;
 
-use NovaPoshta\Properties\MethodProperties;
+use NovaPoshta\MethodProperties;
 
 class SettlementsMethodProperties extends MethodProperties
 {

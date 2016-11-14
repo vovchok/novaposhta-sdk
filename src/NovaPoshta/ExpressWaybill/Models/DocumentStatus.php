@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\ExpressWaybill\Models;
 
-use NovaPoshta\Models\Model;
+use NovaPoshta\Model;
 
 class DocumentStatus extends Model
 {

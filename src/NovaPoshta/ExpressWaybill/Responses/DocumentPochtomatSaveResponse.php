@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\ExpressWaybill\Responses;
 
-use NovaPoshta\Responses\Response;
+use NovaPoshta\Response;
 use NovaPoshta\ExpressWaybill\Models\ExpressWaybillPochtomat;
 
 class DocumentPochtomatSaveResponse extends Response

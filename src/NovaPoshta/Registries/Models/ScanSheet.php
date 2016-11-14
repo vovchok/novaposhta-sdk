@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\Registries\Models;
 
-use NovaPoshta\Models\Model;
+use NovaPoshta\Model;
 
 class ScanSheet extends Model
 {

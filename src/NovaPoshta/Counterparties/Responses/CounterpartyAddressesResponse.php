@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\Counterparties\Responses;
 
-use NovaPoshta\Responses\Response;
+use NovaPoshta\Response;
 use NovaPoshta\Counterparties\Models\CounterpartyAddress;
 
 class CounterpartyAddressesResponse extends Response

@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\References\Responses;
 
-use NovaPoshta\Responses\Response;
+use NovaPoshta\Response;
 use NovaPoshta\References\Models\TypeOfPayersForRedelivery;
 
 class TypesOfPayersForRedeliveryResponse extends Response

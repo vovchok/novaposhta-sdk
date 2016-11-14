@@ -3,7 +3,7 @@
 namespace NovaPoshta\ExpressWaybill\Services;
 
 use NovaPoshta\Configuration;
-use NovaPoshta\Services\Service;
+use NovaPoshta\Service;
 
 use NovaPoshta\ExpressWaybill\Properties\StatusDocumentsMethodProperties;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaPoshta\Properties;
+namespace NovaPoshta;
 
 class MethodProperties
 {

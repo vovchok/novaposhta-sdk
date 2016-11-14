@@ -3,7 +3,7 @@
 namespace NovaPoshta\Counterparties\Services;
 
 use NovaPoshta\Configuration;
-use NovaPoshta\Services\Service;
+use NovaPoshta\Service;
 
 use NovaPoshta\Counterparties\Properties\ContactPersonMethodProperties;
 use NovaPoshta\Counterparties\Properties\ContactPersonUpdateMethodProperties;

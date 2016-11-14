@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\ExpressWaybill\Properties;
 
-use NovaPoshta\Properties\MethodProperties;
+use NovaPoshta\MethodProperties;
 
 class GenerateReportMethodProperties extends MethodProperties
 {

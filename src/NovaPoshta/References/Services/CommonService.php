@@ -3,7 +3,7 @@
 namespace NovaPoshta\References\Services;
 
 use NovaPoshta\Configuration;
-use NovaPoshta\Services\Service;
+use NovaPoshta\Service;
 use NovaPoshta\References\Properties\TimeIntervalMethodProperties;
 use NovaPoshta\References\Properties\CargoDescriptionMethodProperties;
 

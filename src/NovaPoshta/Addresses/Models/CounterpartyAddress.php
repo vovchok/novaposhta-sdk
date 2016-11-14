@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\Addresses\Models;
 
-use NovaPoshta\Models\Model;
+use NovaPoshta\Model;
 
 class CounterpartyAddress extends Model
 {

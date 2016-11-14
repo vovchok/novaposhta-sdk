@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaPoshta\Services;
+namespace NovaPoshta;
 
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Client;
@@ -9,10 +9,6 @@ use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-
-use NovaPoshta\Requests\Request;
-use NovaPoshta\Properties\MethodProperties;
-use NovaPoshta\Configuration;
 
 class Service
 {

@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\Addresses\Responses;
 
-use NovaPoshta\Responses\Response;
+use NovaPoshta\Response;
 use NovaPoshta\Addresses\Models\Warehouse;
 
 class WarehouseResponse extends Response

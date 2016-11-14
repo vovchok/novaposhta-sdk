@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\Addresses\Models;
 
-use NovaPoshta\Models\Model;
+use NovaPoshta\Model;
 
 class Warehouse extends Model
 {

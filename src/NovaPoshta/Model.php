@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaPoshta\Models;
+namespace NovaPoshta;
 
 class Model {
 

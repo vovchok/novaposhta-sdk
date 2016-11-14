@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\Registries\Responses;
 
-use NovaPoshta\Responses\Response;
+use NovaPoshta\Response;
 use NovaPoshta\Registries\Models\ScanSheetItem;
 
 class ScanSheetListResponse extends Response

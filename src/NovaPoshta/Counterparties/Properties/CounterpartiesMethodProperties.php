@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\Counterparties\Properties;
 
-use NovaPoshta\Properties\MethodProperties;
+use NovaPoshta\MethodProperties;
 
 class CounterpartiesMethodProperties extends MethodProperties
 {

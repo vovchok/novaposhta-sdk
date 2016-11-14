@@ -3,7 +3,7 @@
 namespace NovaPoshta\Registries\Services;
 
 use NovaPoshta\Configuration;
-use NovaPoshta\Services\Service;
+use NovaPoshta\Service;
 
 use NovaPoshta\Registries\Properties\InsertDocumentsMethodProperties;
 use NovaPoshta\Registries\Properties\ScanSheetMethodProperties;

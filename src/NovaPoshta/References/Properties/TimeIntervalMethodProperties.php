@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\References\Properties;
 
-use NovaPoshta\Properties\MethodProperties;
+use NovaPoshta\MethodProperties;
 
 class TimeIntervalMethodProperties extends MethodProperties
 {

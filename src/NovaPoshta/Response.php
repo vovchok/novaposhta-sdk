@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaPoshta\Responses;
+namespace NovaPoshta;
 
 class Response
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace NovaPoshta\Requests;
+namespace NovaPoshta;
 
 class Request
 {

@@ -3,8 +3,8 @@
 namespace NovaPoshta\ExpressWaybill\Services;
 
 use NovaPoshta\Configuration;
-use NovaPoshta\Services\Service;
-use NovaPoshta\Properties\MethodProperties;
+use NovaPoshta\Service;
+use NovaPoshta\MethodProperties;
 use NovaPoshta\ExpressWaybill\Properties\DocumentPriceMethodProperties;
 use NovaPoshta\ExpressWaybill\Properties\DocumentDeliveryDateMethodProperties;
 use NovaPoshta\ExpressWaybill\Properties\DocumentUpdateMethodProperties;

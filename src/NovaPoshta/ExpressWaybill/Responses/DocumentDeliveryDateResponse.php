@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\ExpressWaybill\Responses;
 
-use NovaPoshta\Responses\Response;
+use NovaPoshta\Response;
 use NovaPoshta\ExpressWaybill\Models\DocumentDeliveryDate;
 
 class DocumentDeliveryDateResponse extends Response

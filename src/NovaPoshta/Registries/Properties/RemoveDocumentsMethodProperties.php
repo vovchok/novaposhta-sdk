@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\Registries\Properties;
 
-use NovaPoshta\Properties\MethodProperties;
+use NovaPoshta\MethodProperties;
 
 class RemoveDocumentsMethodProperties extends MethodProperties
 {

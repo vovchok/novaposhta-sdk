@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\References\Models;
 
-use NovaPoshta\Models\Model;
+use NovaPoshta\Model;
 
 class OwnershipForm extends Model
 {
