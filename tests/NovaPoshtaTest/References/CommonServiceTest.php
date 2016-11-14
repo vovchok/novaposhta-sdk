@@ -10,6 +10,9 @@ use NovaPoshta\ContentTypes;
 use NovaPoshta\References\Properties\TimeIntervalMethodProperties;
 use NovaPoshta\References\Properties\CargoDescriptionMethodProperties;
 
+/**
+ * @group CommonService
+ */
 class CommonServiceTest extends \PHPUnit_Framework_TestCase
 {
     protected static $service;
