@@ -25,6 +25,16 @@ class Model implements \ArrayAccess {
         $this->properties[$key] = $value;
     }
 
+    public function __isset($key)
+    {
+        return isset($this->properties[$key]);
+    }
+
+    public function __unset($key)
+    {
+        unset($this->properties[$key]);
+    }
+
     public function offsetSet($key, $value)
     {
         $this->__set($key, $value);
@@ -32,12 +42,12 @@ class Model implements \ArrayAccess {
 
     public function offsetExists($key)
     {
-        return isset($this->properties[$key]);
+        return $this->__isset($key);
     }
 
     public function offsetUnset($key)
     {
-        unset($this->properties[$key]);
+        $this->__unset($key);
     }
 
     public function offsetGet($key)
