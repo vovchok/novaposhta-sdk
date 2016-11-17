@@ -4,7 +4,7 @@ namespace NovaPoshta;
 
 class Model implements \ArrayAccess {
 
-    private $properties = [];
+    protected $properties = [];
 
     public function __construct( $values = [] )
     {
