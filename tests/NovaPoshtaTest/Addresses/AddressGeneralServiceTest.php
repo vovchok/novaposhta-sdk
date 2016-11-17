@@ -20,37 +20,103 @@ class AddressGeneralServiceTest extends \PHPUnit_Framework_TestCase
     public static function setupBeforeClass()
     {
         self::$service = new AddressGeneralService(new Configuration([
-            'apiKey' => 'YOUR_API_KEY',
+            'apiKey' => '51c72f55cdfcb88f5e95e7ce8170733d',
             'contentType' => ContentTypes::JSON,
             //'sandbox' => true
         ]));
     }
 
-    public function testGetSettlements()
+    public function settlementsMethodProperties()
+    {
+        return [
+            [
+                [
+                    "AreaRef" => "dcaadb64-4b33-11e4-ab6d-005056801329",
+                    "Ref" => "0e451e40-4b3a-11e4-ab6d-005056801329",
+                    "MainCitiesOnly" => true,
+                    "RegionRef" => "e4b03a8f-4b33-11e4-ab6d-005056801329",
+                    "Page" => 1
+                ]
+            ],
+            [
+                [
+                    "AreaRef" => "dcaadb64-4b33-11e4-ab6d-005056801329",
+                    "MainCitiesOnly" => true
+                ]
+            ],
+            [
+                [
+                    "AreaRef" => "dcaadb64-4b33-11e4-ab6d-005056801329",
+                    "MainCitiesOnly" => false,
+                    "Page" => 2
+                ]
+            ],
+            [
+                [
+                    "RegionRef" => "e4b03a8f-4b33-11e4-ab6d-005056801329",
+                    "MainCitiesOnly" => false
+                ]
+            ],
+            [
+                [
+                    "Ref" => "0e451e40-4b3a-11e4-ab6d-005056801329"
+                ]
+            ],
+            [
+                [
+                    "FindByString" => "Ка"
+                ]
+            ]
+        ];
+    }
+
+    /**
+     *
+     * @dataProvider settlementsMethodProperties
+     */
+    public function testGetSettlements($properties)
     {
         //$this->markTestSkipped();
 
-        $properties = new SettlementsMethodProperties();
-        $properties->setAreaRef("dcaadb64-4b33-11e4-ab6d-005056801329");
-        $properties->setRef("0e451e40-4b3a-11e4-ab6d-005056801329");
-        $properties->setMainCitiesOnly(true);
-        $properties->setRegionRef("e4b03a8f-4b33-11e4-ab6d-005056801329");
-        $properties->setPage(3);
+        $methodProperties = new SettlementsMethodProperties($properties);
 
-        $result = self::$service->getSettlements($properties);
+        $result = self::$service->getSettlements($methodProperties);
 
         $this->assertTrue($result->isSuccess());
     }
 
-    public function testGetWarehouses()
+    public function warehouseMethodProperties()
+    {
+        return [
+            [
+                [
+                    "CityName" => "Бахмач",
+                    "CityRef" => "20982d74-9b6c-11e2-a57a-d4ae527baec3"
+                ]
+            ],
+            [
+                [
+                    "CityName" => "Бахмач"
+                ]
+            ],
+            [
+                [
+                    "CityRef" => "20982d74-9b6c-11e2-a57a-d4ae527baec3"
+                ]
+            ]
+        ];
+    }
+    /**
+     *
+     * @dataProvider warehouseMethodProperties
+     */
+    public function testGetWarehouses($properties)
     {
         //$this->markTestSkipped();
 
-        $properties = new WarehouseMethodProperties();
-        $properties->setCityName("Бахмач");
-        $properties->setCityRef("20982d74-9b6c-11e2-a57a-d4ae527baec3");
+        $methodProperties = new WarehouseMethodProperties($properties);
 
-        $result = self::$service->getWarehouses($properties);
+        $result = self::$service->getWarehouses($methodProperties);
 
         $this->assertTrue($result->isSuccess());
     }
