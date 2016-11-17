@@ -11,12 +11,12 @@ class StatusDocumentsMethodProperties extends MethodProperties
         $docs = [];
         if ( is_array($Documents) ) {
             foreach ( $Documents as $doc ) {
-                $docs[] = $Documents->getProperties();
+                $docs[] = $Documents;
             }
         }
 
         if ( is_object($Documents)) {
-            $docs[] = $Documents->getProperties();
+            $docs[] = $Documents;
         }
 
         $this->__set('Documents', $docs);

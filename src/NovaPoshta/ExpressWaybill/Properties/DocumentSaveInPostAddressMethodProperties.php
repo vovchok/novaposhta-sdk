@@ -48,7 +48,7 @@ class DocumentSaveInPostAddressMethodProperties extends MethodProperties
 
     public function setOptionsSeat($optionsSeat)
     {
-        $this->__set('OptionsSeat', $optionsSeat->getProperties());
+        $this->__set('OptionsSeat', $optionsSeat);
     }
 
     public function getOptionsSeat()

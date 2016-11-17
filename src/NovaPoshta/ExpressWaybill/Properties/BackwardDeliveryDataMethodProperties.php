@@ -33,7 +33,7 @@ class BackwardDeliveryDataMethodProperties extends MethodProperties
 
     public function setServices(ServicesMethodProperties $Services)
     {
-        $this->__set('Services', $Services->getProperties());
+        $this->__set('Services', $Services);
     }
 
     public function getRedeliveryString()

@@ -18,7 +18,7 @@ class Request
         $this->modelName = $modelName;
         $this->calledMethod = $calledMethod;
         $this->apiKey = $apiKey;
-        $this->methodProperties = isset($methodProperties) ? $methodProperties->getProperties() : [];
+        $this->methodProperties = $methodProperties;
     }
 
     public function getModelName()

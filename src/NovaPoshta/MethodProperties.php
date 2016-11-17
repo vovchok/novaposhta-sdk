@@ -2,7 +2,7 @@
 
 namespace NovaPoshta;
 
-class MethodProperties
+class MethodProperties implements \JsonSerializable
 {
     private $properties = [];
 
@@ -25,8 +25,9 @@ class MethodProperties
         $this->properties[$key] = $value;
     }
 
-    public function getProperties()
+    public function jsonSerialize()
     {
         return $this->properties;
     }
+
 }
