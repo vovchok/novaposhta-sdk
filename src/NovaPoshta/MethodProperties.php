@@ -6,6 +6,13 @@ class MethodProperties
 {
     private $properties = [];
 
+    public function __construct( $values = [] )
+    {
+        foreach ( $values as $key => $value ) {
+            $this->__set($key, $value);
+        }
+    }
+
     public function __get($key)
     {
         if (isset($this->properties[$key])) {
