@@ -9,7 +9,7 @@ class Model implements \ArrayAccess {
     public function __construct( $values = [] )
     {
         foreach ( $values as $key => $value ) {
-            $this->{$key} = $value;
+            $this->__set($key, $value);
         }
     }
 
