@@ -6,7 +6,7 @@ use NovaPoshta\ModelNames;
 use NovaPoshta\Configuration;
 use NovaPoshta\Service;
 
-use NovaPoshta\Addresses\Properties\CounterpartyMethodProperties;
+use NovaPoshta\Addresses\Properties\CounterpartyAddressMethodProperties;
 use NovaPoshta\Addresses\Properties\GetCitiesMethodProperties;
 use NovaPoshta\Addresses\Properties\GetStreetMethodProperties;
 
@@ -19,7 +19,7 @@ class AddressService extends Service
 		parent::__construct($config);
 	}
 
-	public function save(CounterpartyMethodProperties $properties)
+	public function save(CounterpartyAddressMethodProperties $properties)
 	{
 		return $this->makeRequest(
 			__FUNCTION__,
@@ -28,7 +28,7 @@ class AddressService extends Service
 		);
 	}
 
-	public function update(CounterpartyMethodProperties $properties)
+	public function update(CounterpartyAddressMethodProperties $properties)
 	{
 		return $this->makeRequest(
 			__FUNCTION__,
@@ -37,7 +37,7 @@ class AddressService extends Service
 		);
 	}
 
-	public function delete(CounterpartyMethodProperties $properties)
+	public function delete(CounterpartyAddressMethodProperties $properties)
 	{
 		return $this->makeRequest(
 			__FUNCTION__,
