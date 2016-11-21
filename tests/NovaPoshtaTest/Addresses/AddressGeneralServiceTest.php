@@ -3,8 +3,8 @@
 namespace NovaPoshtaTest\Addresses;
 
 use NovaPoshta\Addresses\Services\AddressGeneralService;
-use NovaPoshta\Addresses\Properties\SettlementsMethodProperties;
-use NovaPoshta\Addresses\Properties\WarehouseMethodProperties;
+use NovaPoshta\Addresses\Properties\GetSettlementsMethodProperties;
+use NovaPoshta\Addresses\Properties\GetWarehousesMethodProperties;
 
 use NovaPoshta\Configuration;
 use NovaPoshta\ContentTypes;
@@ -15,20 +15,21 @@ use NovaPoshta\ContentTypes;
 class AddressGeneralServiceTest extends \PHPUnit_Framework_TestCase
 {
 
-    protected static $service;
+	protected static $service;
 
-    public static function setupBeforeClass()
-    {
-        self::$service = new AddressGeneralService(new Configuration([
-            'apiKey' => '51c72f55cdfcb88f5e95e7ce8170733d',
-            'contentType' => ContentTypes::JSON,
-            //'sandbox' => true
-        ]));
-    }
+	public static function setupBeforeClass()
+	{
+		self::$service = new AddressGeneralService(new Configuration([
+			'apiKey' => '51c72f55cdfcb88f5e95e7ce8170733d',
+			'contentType' => ContentTypes::JSON,
+			//'sandbox' => true
+		]));
+	}
 
-    public function settlementsMethodProperties()
+	public function settlementsMethodProperties()
     {
         return [
+
             [
                 [
                     "AreaRef" => "dcaadb64-4b33-11e4-ab6d-005056801329",
@@ -74,16 +75,16 @@ class AddressGeneralServiceTest extends \PHPUnit_Framework_TestCase
      *
      * @dataProvider settlementsMethodProperties
      */
-    public function testGetSettlements($properties)
-    {
-        //$this->markTestSkipped();
+	public function testGetSettlements($properties)
+	{
+	//	$this->markTestSkipped();
 
-        $methodProperties = new SettlementsMethodProperties($properties);
+        $methodProperties = new GetSettlementsMethodProperties($properties);
 
-        $result = self::$service->getSettlements($methodProperties);
+		$result = self::$service->getSettlements($methodProperties);
 
-        $this->assertTrue($result->isSuccess());
-    }
+		$this->assertTrue($result->isSuccess());
+	}
 
     public function warehouseMethodProperties()
     {
@@ -110,24 +111,24 @@ class AddressGeneralServiceTest extends \PHPUnit_Framework_TestCase
      *
      * @dataProvider warehouseMethodProperties
      */
-    public function testGetWarehouses($properties)
-    {
-        //$this->markTestSkipped();
+	public function testGetWarehouses($properties)
+	{
+		//$this->markTestSkipped();
 
-        $methodProperties = new WarehouseMethodProperties($properties);
+        $methodProperties = new GetWarehousesMethodProperties($properties);
 
-        $result = self::$service->getWarehouses($methodProperties);
+		$result = self::$service->getWarehouses($methodProperties);
 
-        $this->assertTrue($result->isSuccess());
-    }
+		$this->assertTrue($result->isSuccess());
+	}
 
-    public function testGetWarehouseTypes()
-    {
-        //$this->markTestSkipped();
+	public function testGetWarehouseTypes()
+	{
+		//$this->markTestSkipped();
 
-        $result = self::$service->getWarehouseTypes();
+		$result = self::$service->getWarehouseTypes();
 
-        $this->assertTrue($result->isSuccess());
-    }
+		$this->assertTrue($result->isSuccess());
+	}
 
 }
