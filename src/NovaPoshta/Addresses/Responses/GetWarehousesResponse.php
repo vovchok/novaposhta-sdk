@@ -7,8 +7,8 @@ use NovaPoshta\Addresses\Models\Warehouse;
 
 class GetWarehousesResponse extends Response
 {
-	public function __construct()
-	{
-		parent::__construct(Warehouse::class);
-	}
+    public function setData($data, $className = Warehouse::class)
+    {
+        parent::setData($data, $className);
+    }
 }

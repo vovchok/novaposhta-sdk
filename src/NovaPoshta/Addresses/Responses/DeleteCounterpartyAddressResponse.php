@@ -7,8 +7,8 @@ use NovaPoshta\Addresses\Models\CounterpartyAddress;
 
 class DeleteCounterpartyAddressResponse extends Response
 {
-	public function __construct()
-	{
-		parent::__construct(CounterpartyAddress::class);
-	}
+    public function setData($data, $className = CounterpartyAddress::class)
+    {
+        parent::setData($data, $className);
+    }
 }

@@ -7,8 +7,8 @@ use NovaPoshta\Addresses\Models\WarehouseType;
 
 class GetWarehouseTypesResponse extends Response
 {
-	public function __construct()
-	{
-		parent::__construct(WarehouseType::class);
-	}
+    public function setData($data, $className = WarehouseType::class)
+    {
+        parent::setData($data, $className);
+    }
 }

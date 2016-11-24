@@ -7,8 +7,8 @@ use NovaPoshta\Addresses\Models\Oblast;
 
 class GetAreastResponse extends Response
 {
-	public function __construct()
-	{
-		parent::__construct(Oblast::class);
-	}
+    public function setData($data, $className = Oblast::class)
+    {
+        parent::setData($data, $className);
+    }
 }

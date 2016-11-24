@@ -7,8 +7,8 @@ use NovaPoshta\Addresses\Models\City;
 
 class GetCitiesResponse extends Response
 {
-	public function __construct()
-	{
-		parent::__construct(City::class);
-	}
+    public function setData($data, $className = City::class)
+    {
+        parent::setData($data, $className);
+    }
 }

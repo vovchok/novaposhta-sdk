@@ -7,8 +7,8 @@ use NovaPoshta\Addresses\Models\Street;
 
 class GetStreetResponse extends Response
 {
-	public function __construct()
-	{
-		parent::__construct(Street::class);
-	}
+    public function setData($data, $className = Street::class)
+    {
+        parent::setData($data, $className);
+    }
 }

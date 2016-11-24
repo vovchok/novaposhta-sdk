@@ -7,8 +7,8 @@ use NovaPoshta\Addresses\Models\Settlement;
 
 class GetSettlementsResponse extends Response
 {
-	public function __construct()
-	{
-		parent::__construct(Settlement::class);
-	}
+    public function setData($data, $className = Settlement::class)
+    {
+        parent::setData($data, $className);
+    }
 }
