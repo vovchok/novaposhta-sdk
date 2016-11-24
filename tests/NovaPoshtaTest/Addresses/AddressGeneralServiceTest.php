@@ -91,22 +91,13 @@ class AddressGeneralServiceTest extends \PHPUnit_Framework_TestCase
         return [
             [
                 [
+                    "CityRef" => "20982d74-9b6c-11e2-a57a-d4ae527baec3",
                     "CityName" => "Бахмач",
-                    "CityRef" => "20982d74-9b6c-11e2-a57a-d4ae527baec3"
                 ]
             ],
-            [
-                [
-                    "CityName" => "Бахмач"
-                ]
-            ],
-            [
-                [
-                    "CityRef" => "20982d74-9b6c-11e2-a57a-d4ae527baec3"
-                ]
-            ]
         ];
     }
+
     /**
      *
      * @dataProvider warehouseMethodProperties

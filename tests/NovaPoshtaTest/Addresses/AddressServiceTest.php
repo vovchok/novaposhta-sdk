@@ -3,9 +3,9 @@
 namespace NovaPoshtaTest\Address;
 
 use NovaPoshta\Addresses\Services\AddressService;
-use NovaPoshta\Addresses\Properties\CitiesMethodProperties;
-use NovaPoshta\Addresses\Properties\StreetMethodProperties;
-use NovaPoshta\Addresses\Properties\CounterpartyMethodProperties;
+use NovaPoshta\Addresses\Properties\GetCitiesMethodProperties;
+use NovaPoshta\Addresses\Properties\GetStreetMethodProperties;
+use NovaPoshta\Addresses\Properties\CounterpartyAddressMethodProperties;
 
 use NovaPoshta\Configuration;
 use NovaPoshta\ContentTypes;
@@ -15,96 +15,172 @@ use NovaPoshta\ContentTypes;
  */
 class AddressServiceTest extends \PHPUnit_Framework_TestCase
 {
-    protected static $service;
+	protected static $service;
 
-    public static function setupBeforeClass()
+	public static function setupBeforeClass()
+	{
+		self::$service = new AddressService(new Configuration([
+            'apiKey' => '51c72f55cdfcb88f5e95e7ce8170733d',
+			'contentType' => ContentTypes::JSON,
+			//'sandbox' => true
+		]));
+	}
+
+	public function testGetAreas()
+	{
+		//$this->markTestSkipped();
+
+		$result = self::$service->getAreas();
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+	public function getCitiesMethodProperties()
     {
-        self::$service = new AddressService(new Configuration([
-            'apiKey' => 'YOUR_API_KEY',
-            'contentType' => ContentTypes::JSON,
-            //'sandbox' => true
-        ]));
+        return [
+            [
+                [
+                    "Ref" => "ebc0eda9-93ec-11e3-b441-0050568002cf"
+                ]
+            ],
+            [
+                [
+                    "FindByString" => 'Ка',
+                    "Page" => 1
+                ]
+            ]
+        ];
     }
 
-    public function testGetAreas()
+    /**
+     * @dataProvider getCitiesMethodProperties
+     */
+	public function testGetCities( $properties )
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new GetCitiesMethodProperties($properties);
+
+		$result = self::$service->getCities($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+
+	public function getStreetMethodProperties()
     {
-        //$this->markTestSkipped();
-
-        $result = self::$service->getAreas();
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "CityRef" => "ebc0eda9-93ec-11e3-b441-0050568002cf",
+                    "FindByString" => "Ка"
+                ]
+            ],
+            [
+                [
+                    "CityRef" => "ebc0eda9-93ec-11e3-b441-0050568002cf",
+                    "FindByString" => "Ка",
+                    "Page" => 1
+                ]
+            ],
+        ];
     }
 
-    public function testGetCities()
+    /**
+     * @dataProvider getStreetMethodProperties
+     */
+	public function testGetStreet($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new GetStreetMethodProperties($properties);
+
+		$result = self::$service->getStreet($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+	public function saveCounterpartyAddressMethodProperties()
     {
-        //$this->markTestSkipped();
-
-        $properties = new CitiesMethodProperties();
-        //$properties->setRef("ebc0eda9-93ec-11e3-b441-0050568002cf");
-        $properties->setFindByString('Ка');
-        $properties->setPage(1);
-
-        $result = self::$service->getCities($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "CounterpartyRef" => "5ace4a2e-13ee-11e5-add9-005056887b8d",
+                    "StreetRef" => "d4450bdb-0a58-11de-b6f5-001d92f78697",
+                    "BuildingNumber" => 7,
+                    "Flat" => 2,
+                    "Note" => "Комментарий"
+                ]
+            ],
+        ];
     }
 
-    public function testGetStreet()
+    /**
+     * @dataProvider saveCounterpartyAddressMethodProperties
+     */
+	public function testSaveCounterpartyAddress( $properties )
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new CounterpartyAddressMethodProperties($properties);
+
+		$result = self::$service->save($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+    public function updateCounterpartyAddressMethodProperties()
     {
-        //$this->markTestSkipped();
-
-        $properties = new StreetMethodProperties();
-        $properties->setCityRef("000655f2-4079-11de-b509-001d92f78698");
-        //$properties->setFindByString('К');
-        //$properties->setPage(1);
-
-        $result = self::$service->getStreet($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "CounterpartyRef" => "5ace4a2e-13ee-11e5-add9-005056887b8d",
+                    "Ref" => "5fdf0be8-c4e6-11e5-a70c-005056801333",
+                    "StreetRef" => "bba0d9b3-4148-11dd-9198-001d60451983",
+                    "BuildingNumber" => 45,
+                    "Flat" => 12,
+                    "Note" => "Комментарий"
+                ]
+            ]
+        ];
     }
 
-    public function testCounterpartyAddressSave()
+    /**
+     * @dataProvider updateCounterpartyAddressMethodProperties
+     */
+	public function testUpdateCounterpartyAddress($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new CounterpartyAddressMethodProperties($properties);
+
+		$result = self::$service->update($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+	public function deleteCounterpartyAddressMethodProperties()
     {
-        //$this->markTestSkipped();
-
-        $properties = new CounterpartyMethodProperties();
-        $properties->setCounterpartyRef("5ace4a2e-13ee-11e5-add9-005056887b8d");
-        $properties->setStreetRef('d4450bdb-0a58-11de-b6f5-001d92f78697');
-        $properties->setBuildingNumber(7);
-        $properties->setFlat(2);
-        $properties->setNote("Комментарий");
-
-        $result = self::$service->save($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "Ref" => "d5aa1638-1dbf-11e6-a70c-005056801333"
+                ]
+            ]
+        ];
     }
 
-    public function testCounterpartyAddressUpdate()
-    {
-        //$this->markTestSkipped();
+    /**
+     * @dataProvider deleteCounterpartyAddressMethodProperties
+     */
+	public function testDeleteCounterpartyAddress($properties)
+	{
+		//$this->markTestSkipped();
 
-        $properties = new CounterpartyMethodProperties();
-        $properties->setCounterpartyRef("5ace4a2e-13ee-11e5-add9-005056887b8d");
-        $properties->setRef("5fdf0be8-c4e6-11e5-a70c-005056801333");
-        $properties->setStreetRef('bba0d9b3-4148-11dd-9198-001d60451983');
-        $properties->setBuildingNumber(45);
-        $properties->setFlat(12);
-        $properties->setNote("Комментарий");
+		$methodProperties = new CounterpartyAddressMethodProperties($properties);
 
-        $result = self::$service->update($properties);
+		$result = self::$service->delete($methodProperties);
 
-        $this->assertTrue($result->isSuccess());
-    }
-
-    public function testCounterpartyAddressDelete()
-    {
-        //$this->markTestSkipped();
-
-        $properties = new CounterpartyMethodProperties();
-        $properties->setRef("d5aa1638-1dbf-11e6-a70c-005056801333");
-
-        $result = self::$service->delete($properties);
-
-        $this->assertTrue($result->isSuccess());
-    }
+		$this->assertTrue($result->isSuccess());
+	}
 }
