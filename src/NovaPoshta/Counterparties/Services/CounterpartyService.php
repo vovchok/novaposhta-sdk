@@ -2,6 +2,7 @@
 
 namespace NovaPoshta\Counterparties\Services;
 
+use NovaPoshta\ModelNames;
 use NovaPoshta\Configuration;
 use NovaPoshta\Service;
 
@@ -15,73 +16,73 @@ use NovaPoshta\Counterparties\Properties\CounterpartyDeleteMethodProperties;
 
 class CounterpartyService extends Service
 {
-    public function __construct(Configuration $config)
-    {
-        $this->modelName = 'Counterparty';
+	public function __construct(Configuration $config)
+	{
+		$this->modelName = ModelNames::Counterparty;
 
-        parent::__construct($config);
-    }
+		parent::__construct($config);
+	}
 
-    public function save(CounterpartyMethodProperties $properties)
-    {
-        return $this->makeRequest(
-            'save',
-            \NovaPoshta\Counterparties\Responses\CounterpartySaveResponse::class,
-            $properties
-        );
-    }
+	public function save(CounterpartyMethodProperties $properties)
+	{
+		return $this->makeRequest(
+			'save',
+			\NovaPoshta\Counterparties\Responses\CounterpartySaveResponse::class,
+			$properties
+		);
+	}
 
-    public function update(CounterpartyUpdateMethodProperties $properties)
-    {
-        return $this->makeRequest(
-            'update',
-            \NovaPoshta\Counterparties\Responses\CounterpartyUpdateResponse::class,
-            $properties
-        );
-    }
+	public function update(CounterpartyUpdateMethodProperties $properties)
+	{
+		return $this->makeRequest(
+			'update',
+			\NovaPoshta\Counterparties\Responses\CounterpartyUpdateResponse::class,
+			$properties
+		);
+	}
 
-    public function delete(CounterpartyDeleteMethodProperties $properties)
-    {
-        return $this->makeRequest(
-            'delete',
-            \NovaPoshta\Counterparties\Responses\CounterpartyDeleteResponse::class,
-            $properties
-        );
-    }
+	public function delete(CounterpartyDeleteMethodProperties $properties)
+	{
+		return $this->makeRequest(
+			'delete',
+			\NovaPoshta\Counterparties\Responses\CounterpartyDeleteResponse::class,
+			$properties
+		);
+	}
 
-    public function getCounterpartyAddresses(CounterpartyAddressesMethodProperties $properties)
-    {
-        return $this->makeRequest(
-            'getCounterpartyAddresses',
-            \NovaPoshta\Counterparties\Responses\CounterpartyAddressesResponse::class,
-            $properties
-        );
-    }
+	public function getCounterpartyAddresses(CounterpartyAddressesMethodProperties $properties)
+	{
+		return $this->makeRequest(
+			'getCounterpartyAddresses',
+			\NovaPoshta\Counterparties\Responses\CounterpartyAddressesResponse::class,
+			$properties
+		);
+	}
 
-    public function getCounterpartyOptions(CounterpartyOptionsMethodProperties $properties)
-    {
-        return $this->makeRequest(
-            'getCounterpartyOptions',
-            \NovaPoshta\Counterparties\Responses\CounterpartyOptionsResponse::class,
-            $properties
-        );
-    }
+	public function getCounterpartyOptions(CounterpartyOptionsMethodProperties $properties)
+	{
+		return $this->makeRequest(
+			'getCounterpartyOptions',
+			\NovaPoshta\Counterparties\Responses\CounterpartyOptionsResponse::class,
+			$properties
+		);
+	}
 
-    public function getCounterpartyContactPersons(CounterpartyContactPersonsMethodProperties $properties)
-    {
-        return $this->makeRequest(
-            'getCounterpartyContactPerson',
-            \NovaPoshta\Counterparties\Responses\CounterpartyContactPersonsResponse::class,
-            $properties
-        );
-    }
+	public function getCounterpartyContactPersons(CounterpartyContactPersonsMethodProperties $properties)
+	{
+		return $this->makeRequest(
+			'getCounterpartyContactPerson',
+			\NovaPoshta\Counterparties\Responses\CounterpartyContactPersonsResponse::class,
+			$properties
+		);
+	}
 
-    public function getCounterparties(CounterpartiesMethodProperties $properties)
-    {
-        return $this->makeRequest(
-            'getCounterparties',
-            \NovaPoshta\Counterparties\Responses\CounterpartiesResponse::class,
-            $properties
-        );
-    }
+	public function getCounterparties(CounterpartiesMethodProperties $properties)
+	{
+		return $this->makeRequest(
+			'getCounterparties',
+			\NovaPoshta\Counterparties\Responses\CounterpartiesResponse::class,
+			$properties
+		);
+	}
 }

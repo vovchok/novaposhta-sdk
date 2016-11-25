@@ -7,8 +7,8 @@ use NovaPoshta\Counterparties\Models\Organization;
 
 class CounterpartiesResponse extends Response
 {
-    public function __construct()
-    {
-        parent::__construct(Organization::class);
-    }
+	public function __construct()
+	{
+		parent::__construct(Organization::class);
+	}
 }

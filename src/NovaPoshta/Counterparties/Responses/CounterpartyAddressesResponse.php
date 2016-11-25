@@ -7,8 +7,8 @@ use NovaPoshta\Counterparties\Models\CounterpartyAddress;
 
 class CounterpartyAddressesResponse extends Response
 {
-    public function __construct()
-    {
-        parent::__construct(CounterpartyAddress::class);
-    }
+	public function __construct()
+	{
+		parent::__construct(CounterpartyAddress::class);
+	}
 }

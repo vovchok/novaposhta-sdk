@@ -7,8 +7,8 @@ use NovaPoshta\Counterparties\Models\Reference;
 
 class ContactPersonDeleteResponse extends Response
 {
-    public function __construct()
-    {
-        parent::__construct(Reference::class);
-    }
+	public function __construct()
+	{
+		parent::__construct(Reference::class);
+	}
 }

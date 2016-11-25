@@ -6,13 +6,13 @@ use NovaPoshta\MethodProperties;
 
 class CounterpartyOptionsMethodProperties extends MethodProperties
 {
-    public function setRef($ref)
-    {
-        $this->__set('Ref', $ref);
-    }
+	public function setRef($ref)
+	{
+		$this->__set('Ref', $ref);
+	}
 
-    public function getRef()
-    {
-        $this->__get('Ref');
-    }
+	public function getRef()
+	{
+		$this->__get('Ref');
+	}
 }

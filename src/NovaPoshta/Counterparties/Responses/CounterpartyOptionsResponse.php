@@ -7,8 +7,8 @@ use NovaPoshta\Counterparties\Models\CounterpartyOption;
 
 class CounterpartyOptionsResponse extends Response
 {
-    public function __construct()
-    {
-        parent::__construct(CounterpartyOption::class);
-    }
+	public function __construct()
+	{
+		parent::__construct(CounterpartyOption::class);
+	}
 }

@@ -6,23 +6,23 @@ use NovaPoshta\MethodProperties;
 
 class CounterpartyAddressesMethodProperties extends MethodProperties
 {
-    public function setRef($ref)
-    {
-        $this->__set('Ref', $ref);
-    }
+	public function setRef($ref)
+	{
+		$this->__set('Ref', $ref);
+	}
 
-    public function getRef()
-    {
-        $this->__get('Ref');
-    }
+	public function getRef()
+	{
+		$this->__get('Ref');
+	}
 
-    public function setCounterpartyProperty($counterpartyProperty)
-    {
-        $this->__set('CounterpartyProperty', $counterpartyProperty);
-    }
+	public function setCounterpartyProperty($counterpartyProperty)
+	{
+		$this->__set('CounterpartyProperty', $counterpartyProperty);
+	}
 
-    public function getCounterpartyProperty()
-    {
-        $this->__get('CounterpartyProperty');
-    }
+	public function getCounterpartyProperty()
+	{
+		$this->__get('CounterpartyProperty');
+	}
 }
