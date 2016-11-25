@@ -8,4 +8,5 @@ class ModelNames
     const AddressGeneral = 'AddressGeneral';
     const ContactPerson = 'ContactPerson';
     const Counterparty = 'Counterparty';
+    const Common = 'Common';
 }

@@ -4,6 +4,8 @@ namespace NovaPoshta\References\Services;
 
 use NovaPoshta\Configuration;
 use NovaPoshta\Service;
+use NovaPoshta\ModelNames;
+
 use NovaPoshta\References\Properties\GetTimeIntervalsMethodProperties;
 use NovaPoshta\References\Properties\GetCargoDescriptionListMethodProperties;
 
@@ -11,7 +13,7 @@ class CommonService extends Service
 {
 	public function __construct(Configuration $config)
 	{
-		$this->modelName = 'Common';
+		$this->modelName = ModelNames::Common;
 
 		parent::__construct($config);
 	}
