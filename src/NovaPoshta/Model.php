@@ -4,28 +4,28 @@ namespace NovaPoshta;
 
 class Model implements \ArrayAccess {
 
-    protected $properties = [];
+	protected $properties = [];
 
-    public function __construct( $values = [] )
-    {
-        foreach ( $values as $key => $value ) {
-            $this->__set($key, $value);
-        }
-    }
+	public function __construct( $values = [] )
+	{
+		foreach ( $values as $key => $value ) {
+			$this->__set($key, $value);
+		}
+	}
 
-    public function __get($key)
-    {
-        if (isset($this->properties[$key]) ) {
-            return $this->properties[$key];
-        }
-    }
+	public function __get($key)
+	{
+		if (isset($this->properties[$key]) ) {
+			return $this->properties[$key];
+		}
+	}
 
-    public function __set($key, $value)
-    {
-        $this->properties[$key] = $value;
-    }
+	public function __set($key, $value)
+	{
+		$this->properties[$key] = $value;
+	}
 
-    public function __isset($key)
+	public function __isset($key)
     {
         return isset($this->properties[$key]);
     }
@@ -35,7 +35,7 @@ class Model implements \ArrayAccess {
         unset($this->properties[$key]);
     }
 
-    public function offsetSet($key, $value)
+	public function offsetSet($key, $value)
     {
         $this->__set($key, $value);
     }

@@ -8,7 +8,7 @@ use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Normalizer\JsonSerializableNormalizer;
 
 class Service
 {
@@ -28,8 +28,8 @@ class Service
 
         $this->serializer = new Serializer(
             [
-                new GetSetMethodNormalizer(),
-                new ObjectNormalizer()
+                new JsonSerializableNormalizer(),
+                new GetSetMethodNormalizer()
             ],
             [
                 'json' => new JsonEncoder(),
@@ -40,12 +40,13 @@ class Service
 
     protected function makeRequest($calledMethod, $responseType, MethodProperties $properties = null)
     {
-        $request = new Request(
-            $this->modelName,
-            $calledMethod,
-            $this->config->apiKey,
-            $properties
-        );
+
+        $request = new Request([
+            'modelName' => $this->modelName,
+            'calledMethod' => $calledMethod,
+            'apiKey' => $this->config->apiKey,
+            'methodProperties' => $properties
+        ]);
 
         $serialized = $this->serialize($request);
 

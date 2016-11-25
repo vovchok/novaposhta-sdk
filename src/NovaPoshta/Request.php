@@ -2,62 +2,45 @@
 
 namespace NovaPoshta;
 
-class Request
+class Request extends MethodProperties
 {
-    protected $modelName;
-    protected $calledMethod;
-    protected $apiKey;
-    protected $methodProperties;
-
-    public function __construct(
-        $modelName,
-        $calledMethod,
-        $apiKey,
-        $methodProperties = null)
-    {
-        $this->modelName = $modelName;
-        $this->calledMethod = $calledMethod;
-        $this->apiKey = $apiKey;
-        $this->methodProperties = $methodProperties;
-    }
-
     public function getModelName()
     {
-        return $this->modelName;
+        return $this->__get('modelName');
     }
 
     public function setModelName($modelName)
     {
-        $this->modelName = $modelName;
+        $this->__set('modelName', $modelName);
     }
 
     public function getCalledMethod()
     {
-        return $this->calledMethod;
+        return $this->__get('calledMethod');
     }
 
     public function setCalledMethod($calledMethod)
     {
-        $this->calledMethod = $calledMethod;
+        $this->__set('calledMethod', $calledMethod);
     }
 
     public function getApiKey()
     {
-        return $this->apiKey;
+        return $this->__get('apiKey');
     }
 
     public function setApiKey($apiKey)
     {
-        $this->apiKey = $apiKey;
+        $this->__set('apiKey', $apiKey);
     }
 
     public function getMethodProperties()
     {
-        return $this->methodProperties;
+        return $this->__get('methodProperties');
     }
 
     public function setMethodProperties($methodProperties)
     {
-        $this->methodProperties = $methodProperties;
+        $this->__set('methodProperties', $methodProperties);
     }
 }
