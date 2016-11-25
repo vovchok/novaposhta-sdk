@@ -4,8 +4,8 @@ namespace NovaPoshta\References\Services;
 
 use NovaPoshta\Configuration;
 use NovaPoshta\Service;
-use NovaPoshta\References\Properties\TimeIntervalMethodProperties;
-use NovaPoshta\References\Properties\CargoDescriptionMethodProperties;
+use NovaPoshta\References\Properties\GetTimeIntervalsMethodProperties;
+use NovaPoshta\References\Properties\GetCargoDescriptionListMethodProperties;
 
 class CommonService extends Service
 {
@@ -16,11 +16,11 @@ class CommonService extends Service
 		parent::__construct($config);
 	}
 
-	public function getTimeIntervals(TimeIntervalMethodProperties $properties)
+	public function getTimeIntervals(GetTimeIntervalsMethodProperties $properties)
 	{
 		return $this->makeRequest(
-			'getTimeIntervals',
-			\NovaPoshta\References\Responses\TimeIntervalResponse::class,
+			__FUNCTION__,
+			\NovaPoshta\References\Responses\GetTimeIntervalsResponse::class,
 			$properties
 		);
 	}
@@ -28,48 +28,48 @@ class CommonService extends Service
 	public function getCargoTypes()
 	{
 		return $this->makeRequest(
-			'getCargoTypes',
-			\NovaPoshta\References\Responses\CargoTypesResponse::class
+			__FUNCTION__,
+			\NovaPoshta\References\Responses\GetCargoTypesResponse::class
 		);
 	}
 
 	public function getBackwardDeliveryCargoTypes()
 	{
 		return $this->makeRequest(
-			'getBackwardDeliveryCargoTypes',
-			\NovaPoshta\References\Responses\BackwardDeliveryCargoTypesResponse::class
+			__FUNCTION__,
+			\NovaPoshta\References\Responses\GetBackwardDeliveryCargoTypesResponse::class
 		);
 	}
 
 	public function getTypesOfPayers()
 	{
 		return $this->makeRequest(
-			'getTypesOfPayers',
-			\NovaPoshta\References\Responses\TypesOfPayersResponse::class
+			__FUNCTION__,
+			\NovaPoshta\References\Responses\GetTypesOfPayersResponse::class
 		);
 	}
 
 	public function getTypesOfPayersForRedelivery()
 	{
 		return $this->makeRequest(
-			'getTypesOfPayersForRedelivery',
-			\NovaPoshta\References\Responses\TypesOfPayersForRedeliveryResponse::class
+			__FUNCTION__,
+			\NovaPoshta\References\Responses\GetTypesOfPayersForRedeliveryResponse::class
 		);
 	}
 
 	public function getTiresWheelsList()
 	{
 		return $this->makeRequest(
-			'getTiresWheelsList',
-			\NovaPoshta\References\Responses\TiresWheelsListResponse::class
+			__FUNCTION__,
+			\NovaPoshta\References\Responses\GetTiresWheelsListResponse::class
 		);
 	}
 
-	public function getCargoDescriptionList(CargoDescriptionMethodProperties $properties)
+	public function getCargoDescriptionList(GetCargoDescriptionListMethodProperties $properties)
 	{
 		return $this->makeRequest(
-			'getCargoDescriptionList',
-			\NovaPoshta\References\Responses\CargoDescriptionListResponse::class,
+			__FUNCTION__,
+			\NovaPoshta\References\Responses\GetCargoDescriptionListResponse::class,
 			$properties
 		);
 	}
@@ -77,40 +77,40 @@ class CommonService extends Service
 	public function getServiceTypes()
 	{
 		return $this->makeRequest(
-			'getServiceTypes',
-			\NovaPoshta\References\Responses\ServiceTypesResponse::class
+			__FUNCTION__,
+			\NovaPoshta\References\Responses\GetServiceTypesResponse::class
 		);
 	}
 
 	public function getTypesOfCounterparties()
 	{
 		return $this->makeRequest(
-			'getTypesOfCounterparties',
-			\NovaPoshta\References\Responses\TypesOfCounterpartiesResponse::class
+			__FUNCTION__,
+			\NovaPoshta\References\Responses\GetTypesOfCounterpartiesResponse::class
 		);
 	}
 
 	public function getTraysList()
 	{
 		return $this->makeRequest(
-			'getTraysList',
-			\NovaPoshta\References\Responses\TraysListResponse::class
+			__FUNCTION__,
+			\NovaPoshta\References\Responses\GetTraysListResponse::class
 		);
 	}
 
 	public function getPaymentForms()
 	{
 		return $this->makeRequest(
-			'getPaymentForms',
-			\NovaPoshta\References\Responses\PaymentFormsResponse::class
+			__FUNCTION__,
+			\NovaPoshta\References\Responses\GetPaymentFormsResponse::class
 		);
 	}
 
 	public function getOwnershipFormsList()
 	{
 		return $this->makeRequest(
-			'getOwnershipFormsList',
-			\NovaPoshta\References\Responses\OwnershipFormsListResponse::class
+			__FUNCTION__,
+			\NovaPoshta\References\Responses\GetOwnershipFormsListResponse::class
 		);
 	}
 }

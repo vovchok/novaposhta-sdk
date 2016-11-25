@@ -4,7 +4,7 @@ namespace NovaPoshta\References\Properties;
 
 use NovaPoshta\MethodProperties;
 
-class TimeIntervalMethodProperties extends MethodProperties
+class GetTimeIntervalsMethodProperties extends MethodProperties
 {
 	public function setRecipientCityRef($recipientCityRef)
 	{

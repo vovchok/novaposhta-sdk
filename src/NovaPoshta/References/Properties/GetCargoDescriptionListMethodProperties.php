@@ -4,7 +4,7 @@ namespace NovaPoshta\References\Properties;
 
 use NovaPoshta\MethodProperties;
 
-class CargoDescriptionMethodProperties extends MethodProperties
+class GetCargoDescriptionListMethodProperties extends MethodProperties
 {
 	public function setFindByString($findByString)
 	{
