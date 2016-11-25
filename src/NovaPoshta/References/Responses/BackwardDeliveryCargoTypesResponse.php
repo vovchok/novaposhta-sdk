@@ -7,8 +7,8 @@ use NovaPoshta\References\Models\BackwardDeliveryCargoType;
 
 class BackwardDeliveryCargoTypesResponse extends Response
 {
-    public function __construct()
-    {
-        parent::__construct(BackwardDeliveryCargoType::class);
-    }
+	public function __construct()
+	{
+		parent::__construct(BackwardDeliveryCargoType::class);
+	}
 }

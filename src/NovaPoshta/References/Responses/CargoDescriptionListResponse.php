@@ -7,8 +7,8 @@ use NovaPoshta\References\Models\CargoDescription;
 
 class CargoDescriptionListResponse extends Response
 {
-    public function __construct()
-    {
-        parent::__construct(CargoDescription::class);
-    }
+	public function __construct()
+	{
+		parent::__construct(CargoDescription::class);
+	}
 }

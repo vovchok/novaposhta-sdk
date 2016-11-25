@@ -7,8 +7,8 @@ use NovaPoshta\References\Models\TypeOfPayersForRedelivery;
 
 class TypesOfPayersForRedeliveryResponse extends Response
 {
-    public function __construct()
-    {
-        parent::__construct(TypeOfPayersForRedelivery::class);
-    }
+	public function __construct()
+	{
+		parent::__construct(TypeOfPayersForRedelivery::class);
+	}
 }

@@ -7,8 +7,8 @@ use NovaPoshta\References\Models\CargoType;
 
 class CargoTypesResponse extends Response
 {
-    public function __construct()
-    {
-        parent::__construct(CargoType::class);
-    }
+	public function __construct()
+	{
+		parent::__construct(CargoType::class);
+	}
 }

@@ -7,8 +7,8 @@ use NovaPoshta\References\Models\ServiceType;
 
 class ServiceTypesResponse extends Response
 {
-    public function __construct()
-    {
-        parent::__construct(ServiceType::class);
-    }
+	public function __construct()
+	{
+		parent::__construct(ServiceType::class);
+	}
 }
