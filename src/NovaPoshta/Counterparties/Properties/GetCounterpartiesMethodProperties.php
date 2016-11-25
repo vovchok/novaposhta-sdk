@@ -4,7 +4,7 @@ namespace NovaPoshta\Counterparties\Properties;
 
 use NovaPoshta\MethodProperties;
 
-class CounterpartiesMethodProperties extends MethodProperties
+class GetCounterpartiesMethodProperties extends MethodProperties
 {
 	public function setCounterpartyProperty($counterpartyProperty)
 	{

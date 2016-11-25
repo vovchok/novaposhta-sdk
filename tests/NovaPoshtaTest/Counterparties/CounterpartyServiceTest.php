@@ -7,183 +7,324 @@ use NovaPoshta\ContentTypes;
 
 use NovaPoshta\Counterparties\Services\CounterpartyService;
 use NovaPoshta\Counterparties\Properties\CounterpartyMethodProperties;
-use NovaPoshta\Counterparties\Properties\CounterpartyAddressesMethodProperties;
-use NovaPoshta\Counterparties\Properties\CounterpartyOptionsMethodProperties;
-use NovaPoshta\Counterparties\Properties\CounterpartyContactPersonsMethodProperties;
-use NovaPoshta\Counterparties\Properties\CounterpartiesMethodProperties;
-use NovaPoshta\Counterparties\Properties\CounterpartyUpdateMethodProperties;
-use NovaPoshta\Counterparties\Properties\CounterpartyDeleteMethodProperties;
+use NovaPoshta\Counterparties\Properties\GetCounterpartyAddressesMethodProperties;
+use NovaPoshta\Counterparties\Properties\GetCounterpartyOptionsMethodProperties;
+use NovaPoshta\Counterparties\Properties\GetCounterpartyContactPersonMethodProperties;
+use NovaPoshta\Counterparties\Properties\GetCounterpartiesMethodProperties;
+use NovaPoshta\Counterparties\Properties\UpdateCounterpartyMethodProperties;
+use NovaPoshta\Counterparties\Properties\DeleteCounterpartyMethodProperties;
 
 /**
  * @group CounterpartyService
  */
 class CounterpartyServiceTest extends \PHPUnit_Framework_TestCase
 {
-    protected static $service;
+	protected static $service;
 
-    public static function setupBeforeClass()
+	public static function setupBeforeClass()
+	{
+		self::$service = new CounterpartyService(new Configuration([
+            'apiKey' => '51c72f55cdfcb88f5e95e7ce8170733d',
+			'contentType' => ContentTypes::JSON,
+			//'sandbox' => true
+		]));
+	}
+
+    public function saveCounterparty()
     {
-        self::$service = new CounterpartyService(new Configuration([
-            'apiKey' => 'YOUR_API_KEY',
-            'contentType' => ContentTypes::JSON,
-            //'sandbox' => true
-        ]));
+        return [
+            [
+                [
+                    "CityRef" => "db5c88d7-391c-11dd-90d9-001a92567626",
+                    "FirstName" => "Фелікс",
+                    "MiddleName" => "Едуардович",
+                    "LastName" => "Яковлєв",
+                    "Phone" => "0997979789",
+                    "Email" => "",
+                    "CounterpartyType" => "PrivatePerson",
+                    "CounterpartyProperty" => "Recipient"
+                ]
+            ]
+        ];
     }
 
-    public function testSave()
+    /**
+     * @dataProvider saveCounterparty
+     */
+	public function testSave($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new CounterpartyMethodProperties($properties);
+
+		$result = self::$service->save($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+    public function getCounterpartyAddressesSender()
     {
-        //$this->markTestSkipped();
-
-        $properties = new CounterpartyMethodProperties();
-        $properties->setCityRef("db5c88d7-391c-11dd-90d9-001a92567626");
-        $properties->setFirstName("Фелікс");
-        $properties->setMiddleName("Едуардович");
-        $properties->setLastName("Яковлєв");
-        $properties->setPhone("0997979789");
-        $properties->setEmail("");
-        $properties->setCounterpartyType("PrivatePerson");
-        $properties->setCounterpartyProperty("Recipient");
-
-        $result = self::$service->save($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "Ref" => "5ace4a2e-13ee-11e5-add9-005056887b8d",
+                    "CounterpartyProperty" => "Sender"
+                ]
+            ]
+        ];
     }
 
-    public function testGetCounterpartyAddressesSender()
+    /**
+     * @dataProvider getCounterpartyAddressesSender
+     */
+	public function testGetCounterpartyAddressesSender($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new GetCounterpartyAddressesMethodProperties($properties);
+
+		$result = self::$service->getCounterpartyAddresses($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+    public function getCounterpartyAddressesRecipient()
     {
-        //$this->markTestSkipped();
-
-        $properties = new CounterpartyAddressesMethodProperties();
-        $properties->setRef("5ace4a2e-13ee-11e5-add9-005056887b8d");
-        $properties->setCounterpartyProperty("Sender");
-
-        $result = self::$service->getCounterpartyAddresses($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "Ref" => "5953fb16-08d8-11e4-8958-0025909b4e33",
+                    "CounterpartyProperty" => "Recipient"
+                ]
+            ]
+        ];
     }
 
-    public function testGetCounterpartyAddressesRecipient()
+    /**
+     * @dataProvider getCounterpartyAddressesRecipient
+     */
+	public function testGetCounterpartyAddressesRecipient($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new GetCounterpartyAddressesMethodProperties($properties);
+
+		$result = self::$service->getCounterpartyAddresses($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+    public function getCounterpartyOptions()
     {
-        //$this->markTestSkipped();
-
-        $properties = new CounterpartyAddressesMethodProperties();
-        $properties->setRef("5953fb16-08d8-11e4-8958-0025909b4e33");
-        $properties->setCounterpartyProperty("Recipient");
-
-        $result = self::$service->getCounterpartyAddresses($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "Ref" => "5ace4a2e-13ee-11e5-add9-005056887b8d"
+                ]
+            ]
+        ];
     }
 
-    public function testGetCounterpartyOptions()
+    /**
+     * @dataProvider getCounterpartyOptions
+     */
+	public function testGetCounterpartyOptions($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new GetCounterpartyOptionsMethodProperties($properties);
+
+		$result = self::$service->getCounterpartyOptions($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+    public function getCounterpartyContactPerson()
     {
-        //$this->markTestSkipped();
-
-        $properties = new CounterpartyOptionsMethodProperties();
-        $properties->setRef("5ace4a2e-13ee-11e5-add9-005056887b8d");
-
-        $result = self::$service->getCounterpartyOptions($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "Ref" => "5953fb16-08d8-11e4-8958-0025909b4e33",
+                    "Page" => 22
+                ]
+            ]
+        ];
     }
 
-    public function testGetCounterpartyContactPersons()
+    /**
+     * @dataProvider getCounterpartyContactPerson
+     */
+	public function testGetCounterpartyContactPerson($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new GetCounterpartyContactPersonMethodProperties($properties);
+
+		$result = self::$service->getCounterpartyContactPerson($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+	public function getCounterpartiesSender()
     {
-        //$this->markTestSkipped();
-
-        $properties = new CounterpartyContactPersonsMethodProperties();
-        $properties->setRef("5953fb16-08d8-11e4-8958-0025909b4e33");
-        $properties->setPage(22);
-
-        $result = self::$service->getCounterpartyContactPersons($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "CounterpartyProperty" => 'Sender',
+                    "Page" => 1
+                ]
+            ]
+        ];
     }
 
-    public function testGetCounterpartiesSender()
+    /**
+     * @dataProvider getCounterpartiesSender
+     */
+	public function testGetCounterpartiesSender($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new GetCounterpartiesMethodProperties($properties);
+
+		$result = self::$service->getCounterparties($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+    public function getCounterpartiesRecipient()
     {
-        //$this->markTestSkipped();
-
-        $properties = new CounterpartiesMethodProperties();
-        $properties->setCounterpartyProperty('Sender');
-        $properties->setPage(1);
-
-        $result = self::$service->getCounterparties($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "CounterpartyProperty" => 'Recipient',
+                    "Page" => 1
+                ]
+            ]
+        ];
     }
 
-    public function testGetCounterpartiesRecipient()
+    /**
+     * @dataProvider getCounterpartiesRecipient
+     */
+	public function testGetCounterpartiesRecipient($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new GetCounterpartiesMethodProperties($properties);
+
+		$result = self::$service->getCounterparties($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+	public function getCounterpartiesSenderByEDRPOU()
     {
-        //$this->markTestSkipped();
-
-        $properties = new CounterpartiesMethodProperties();
-        $properties->setCounterpartyProperty('Recipient');
-        $properties->setPage(1);
-
-        $result = self::$service->getCounterparties($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "CounterpartyProperty" => 'Sender',
+                    "EDRPOU" => '37193071'
+                ]
+            ]
+        ];
     }
 
-    public function testGetCounterpartiesSenderByEDRPOU()
+    /**
+     * @dataProvider getCounterpartiesSenderByEDRPOU
+     */
+	public function testGetCounterpartiesSenderByEDRPOU($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new GetCounterpartiesMethodProperties($properties);
+
+		$result = self::$service->getCounterparties($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+    public function getCounterpartiesRecipientByEDRPOU()
     {
-        //$this->markTestSkipped();
-
-        $properties = new CounterpartiesMethodProperties();
-        $properties->setCounterpartyProperty('Sender');
-        $properties->setEDRPOU('37193071');
-        //$properties->setPage(1);
-
-        $result = self::$service->getCounterparties($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "CounterpartyProperty" => 'Recipient',
+                    "EDRPOU" => '37193071'
+                ]
+            ]
+        ];
     }
 
-    public function testGetCounterpartiesRecipientByEDRPOU()
+    /**
+     * @dataProvider getCounterpartiesRecipientByEDRPOU
+     */
+	public function testGetCounterpartiesRecipientByEDRPOU($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new GetCounterpartiesMethodProperties($properties);
+
+		$result = self::$service->getCounterparties($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+    public function updateCounterparty()
     {
-        //$this->markTestSkipped();
-
-        $properties = new CounterpartiesMethodProperties();
-        $properties->setCounterpartyProperty('Recipient');
-        $properties->setEDRPOU('37193071');
-        //$properties->setPage(1);
-
-        $result = self::$service->getCounterparties($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "Ref" => "eb7c1c2e-cc85-11e4-bdb5-005056801329",
+                    "CityRef" => "db5c88d7-391c-11dd-90d9-001a92567626",
+                    "FirstName" => "Михайло",
+                    "MiddleName" => "Іванович",
+                    "LastName" => "Колесник",
+                    "Phone" => "0997979789",
+                    "Email" => "",
+                    "CounterpartyType" => "PrivatePerson",
+                    "CounterpartyProperty" => "Recipient"
+                ]
+            ]
+        ];
     }
 
-    public function testUpdate()
+    /**
+     * @dataProvider updateCounterparty
+     */
+	public function testUpdate($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new UpdateCounterpartyMethodProperties($properties);
+
+		$result = self::$service->update($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+	public function deleteCounterparty()
     {
-        //$this->markTestSkipped();
-
-        $properties = new CounterpartyUpdateMethodProperties();
-        $properties->setRef("eb7c1c2e-cc85-11e4-bdb5-005056801329");
-        $properties->setCityRef("db5c88d7-391c-11dd-90d9-001a92567626");
-        $properties->setFirstName("Михайло");
-        $properties->setMiddleName("Іванович");
-        $properties->setLastName("Колесник");
-        $properties->setPhone("0997979789");
-        $properties->setEmail("");
-        $properties->setCounterpartyType("PrivatePerson");
-        $properties->setCounterpartyProperty("Recipient");
-
-        $result = self::$service->update($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "Ref" => "eb7c1c2e-cc85-11e4-bdb5-005056801329"
+                ]
+            ]
+        ];
     }
 
-    public function testDelete()
-    {
-        //$this->markTestSkipped();
+    /**
+     * @dataProvider deleteCounterparty
+     */
+	public function testDelete($properties)
+	{
+		//$this->markTestSkipped();
 
-        $properties = new CounterpartyDeleteMethodProperties();
-        $properties->setRef("eb7c1c2e-cc85-11e4-bdb5-005056801329");
+		$methodProperties = new DeleteCounterpartyMethodProperties($properties);
 
-        $result = self::$service->delete($properties);
+		$result = self::$service->delete($methodProperties);
 
-        $this->assertTrue($result->isSuccess());
-    }
+		$this->assertTrue($result->isSuccess());
+	}
 
 }

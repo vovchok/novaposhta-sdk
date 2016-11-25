@@ -2,9 +2,7 @@
 
 namespace NovaPoshta\Counterparties\Properties;
 
-use NovaPoshta\MethodProperties;
-
-class CounterpartyDeleteMethodProperties extends MethodProperties
+class UpdateContactPersonMethodProperties extends ContactPersonMethodProperties
 {
 	public function setRef($ref)
 	{

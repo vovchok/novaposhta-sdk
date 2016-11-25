@@ -7,68 +7,106 @@ use NovaPoshta\ContentTypes;
 
 use NovaPoshta\Counterparties\Services\ContactPersonService;
 use NovaPoshta\Counterparties\Properties\ContactPersonMethodProperties;
-use NovaPoshta\Counterparties\Properties\ContactPersonUpdateMethodProperties;
-use NovaPoshta\Counterparties\Properties\ContactPersonDeleteMethodProperties;
+use NovaPoshta\Counterparties\Properties\UpdateContactPersonMethodProperties;
+use NovaPoshta\Counterparties\Properties\DeleteContactPersonMethodProperties;
 
 /**
  * @group ContactPersonService
  */
 class ContactPersonServiceTest extends \PHPUnit_Framework_TestCase
 {
-    protected static $service;
+	protected static $service;
 
-    public static function setupBeforeClass()
+	public static function setupBeforeClass()
+	{
+		self::$service = new ContactPersonService(new Configuration([
+            'apiKey' => '51c72f55cdfcb88f5e95e7ce8170733d',
+			'contentType' => ContentTypes::JSON,
+			//'sandbox' => true
+		]));
+	}
+
+	public function saveContactPerson()
     {
-        self::$service = new ContactPersonService(new Configuration([
-            'apiKey' => 'YOUR_API_KEY',
-            'contentType' => ContentTypes::JSON,
-            //'sandbox' => true
-        ]));
+        return [
+            [
+                [
+                    "CounterpartyRef" => "194ef8cd-9bae-11e6-a54a-005056801333",
+                    "FirstName" => "Люцифер",
+                    "LastName" => "Кравченко",
+                    "MiddleName" => "Борисович",
+                    "Phone" => "+380997979789"
+                ]
+            ]
+        ];
     }
 
-    public function testSave()
+    /**
+     * @dataProvider saveContactPerson
+     */
+	public function testSave($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new ContactPersonMethodProperties($properties);
+
+		$result = self::$service->save($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+    public function updateContactPerson()
     {
-        //$this->markTestSkipped();
-
-        $properties = new ContactPersonMethodProperties();
-        $properties->setCounterpartyRef("194ef8cd-9bae-11e6-a54a-005056801333");
-        $properties->setFirstName("Люцифер");
-        $properties->setLastName("Кравченко");
-        $properties->setMiddleName("Борисович");
-        $properties->setPhone("+380997979789");
-
-        $result = self::$service->save($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "Ref" => "9ad69c2b-159d-11e5-ad08-005056801333",
+                    "CounterpartyRef" => "194ef8cd-9bae-11e6-a54a-005056801333",
+                    "FirstName" => "Иванов",
+                    "LastName" => "Иван",
+                    "MiddleName" => "Иван",
+                    "Phone" => "+380997979789"
+                ]
+            ]
+        ];
     }
 
-    public function testUpdate()
+    /**
+     * @dataProvider updateContactPerson
+     */
+	public function testUpdate($properties)
+	{
+		//$this->markTestSkipped();
+
+		$methodProperties = new UpdateContactPersonMethodProperties($properties);
+
+		$result = self::$service->update($methodProperties);
+
+		$this->assertTrue($result->isSuccess());
+	}
+
+	public function deleteContactPerson()
     {
-        //$this->markTestSkipped();
-
-        $properties = new ContactPersonUpdateMethodProperties();
-        $properties->setRef("9ad69c2b-159d-11e5-ad08-005056801333");
-        $properties->setCounterpartyRef("194ef8cd-9bae-11e6-a54a-005056801333");
-        $properties->setFirstName("Иванов");
-        $properties->setLastName("Иван");
-        $properties->setMiddleName("Иван");
-        $properties->setPhone("+380997979789");
-
-        $result = self::$service->update($properties);
-
-        $this->assertTrue($result->isSuccess());
+        return [
+            [
+                [
+                    "Ref" => "9ad69c2b-159d-11e5-ad08-005056801333"
+                ]
+            ]
+        ];
     }
 
-    public function testDelete()
-    {
-        //$this->markTestSkipped();
+    /**
+     * @dataProvider deleteContactPerson
+     */
+	public function testDelete($properties)
+	{
+		//$this->markTestSkipped();
 
-        $properties = new ContactPersonDeleteMethodProperties();
-        $properties->setRef("9ad69c2b-159d-11e5-ad08-005056801333");
+		$methodProperties = new DeleteContactPersonMethodProperties($properties);
 
-        $result = self::$service->delete($properties);
+		$result = self::$service->delete($methodProperties);
 
-        $this->assertTrue($result->isSuccess());
-    }
-
+		$this->assertTrue($result->isSuccess());
+	}
 }

@@ -4,7 +4,7 @@ namespace NovaPoshta\Counterparties\Properties;
 
 use NovaPoshta\MethodProperties;
 
-class CounterpartyAddressesMethodProperties extends MethodProperties
+class GetCounterpartyAddressesMethodProperties extends MethodProperties
 {
 	public function setRef($ref)
 	{

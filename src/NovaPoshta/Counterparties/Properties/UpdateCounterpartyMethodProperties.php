@@ -2,7 +2,7 @@
 
 namespace NovaPoshta\Counterparties\Properties;
 
-class CounterpartyUpdateMethodProperties extends CounterpartyMethodProperties
+class UpdateCounterpartyMethodProperties extends CounterpartyMethodProperties
 {
 	public function setRef($ref)
 	{

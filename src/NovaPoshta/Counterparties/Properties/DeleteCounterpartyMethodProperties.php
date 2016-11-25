@@ -4,7 +4,7 @@ namespace NovaPoshta\Counterparties\Properties;
 
 use NovaPoshta\MethodProperties;
 
-class CounterpartyContactPersonsMethodProperties extends MethodProperties
+class DeleteCounterpartyMethodProperties extends MethodProperties
 {
 	public function setRef($ref)
 	{
@@ -14,15 +14,5 @@ class CounterpartyContactPersonsMethodProperties extends MethodProperties
 	public function getRef()
 	{
 		$this->__get('Ref');
-	}
-
-	public function setPage($page)
-	{
-		$this->__set('Page', $page);
-	}
-
-	public function getPage()
-	{
-		$this->__get('Page');
 	}
 }
