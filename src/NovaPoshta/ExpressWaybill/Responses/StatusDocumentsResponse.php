@@ -7,8 +7,8 @@ use NovaPoshta\ExpressWaybill\Models\DocumentStatus;
 
 class StatusDocumentsResponse extends Response
 {
-    public function __construct()
+    public function setData($data, $className = DocumentStatus::class)
     {
-        parent::__construct(DocumentStatus::class);
+        return parent::setData($data, $className);
     }
 }

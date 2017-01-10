@@ -7,8 +7,8 @@ use NovaPoshta\ExpressWaybill\Models\DocumentListItem;
 
 class DocumentListResponse extends Response
 {
-    public function __construct()
+    public function setData($data, $className = DocumentListItem::class)
     {
-        parent::__construct(DocumentListItem::class);
+        return parent::setData($data, $className);
     }
 }

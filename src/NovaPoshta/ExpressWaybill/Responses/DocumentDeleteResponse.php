@@ -7,8 +7,8 @@ use NovaPoshta\ExpressWaybill\Models\ExpressWaybillReference;
 
 class DocumentDeleteResponse extends Response
 {
-    public function __construct()
+    public function setData($data, $className = ExpressWaybillReference::class)
     {
-        parent::__construct(ExpressWaybillReference::class);
+        return parent::setData($data, $className);
     }
 }

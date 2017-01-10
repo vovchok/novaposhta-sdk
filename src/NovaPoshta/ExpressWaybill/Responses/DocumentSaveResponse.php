@@ -7,8 +7,8 @@ use NovaPoshta\ExpressWaybill\Models\ExpressWaybill;
 
 class DocumentSaveResponse extends Response
 {
-    public function __construct()
+    public function setData($data, $className = ExpressWaybill::class)
     {
-        parent::__construct(ExpressWaybill::class);
+        return parent::setData($data, $className);
     }
 }

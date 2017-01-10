@@ -7,8 +7,8 @@ use NovaPoshta\ExpressWaybill\Models\Report;
 
 class GenerateReportResponse extends Response
 {
-    public function __construct()
+    public function setData($data, $className = Report::class)
     {
-        parent::__construct(Report::class);
+        return parent::setData($data, $className);
     }
 }

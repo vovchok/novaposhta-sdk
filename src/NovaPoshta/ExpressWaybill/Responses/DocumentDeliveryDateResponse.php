@@ -7,8 +7,8 @@ use NovaPoshta\ExpressWaybill\Models\DocumentDeliveryDate;
 
 class DocumentDeliveryDateResponse extends Response
 {
-    public function __construct()
+    public function setData($data, $className = DocumentDeliveryDate::class)
     {
-        parent::__construct(DocumentDeliveryDate::class);
+        return parent::setData($data, $className);
     }
 }

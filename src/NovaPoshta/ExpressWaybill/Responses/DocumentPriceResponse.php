@@ -7,8 +7,8 @@ use NovaPoshta\ExpressWaybill\Models\DocumentPrice;
 
 class DocumentPriceResponse extends Response
 {
-    public function __construct()
+    public function setData($data, $className = DocumentPrice::class)
     {
-        parent::__construct(DocumentPrice::class);
+        return parent::setData($data, $className);
     }
 }

@@ -7,8 +7,8 @@ use NovaPoshta\ExpressWaybill\Models\ExpressWaybillPochtomat;
 
 class DocumentPochtomatSaveResponse extends Response
 {
-    public function __construct()
+    public function setData($data, $className = ExpressWaybillPochtomat::class)
     {
-        parent::__construct(ExpressWaybillPochtomat::class);
+        return parent::setData($data, $className);
     }
 }
