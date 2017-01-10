@@ -7,8 +7,8 @@ use NovaPoshta\Registries\Models\ScanSheetReference;
 
 class DeleteScanSheetResponse extends Response
 {
-    public function __construct()
+    public function setData($data, $className = ScanSheetReference::class)
     {
-        parent::__construct(ScanSheetReference::class);
+        return parent::setData($data, $className);
     }
 }

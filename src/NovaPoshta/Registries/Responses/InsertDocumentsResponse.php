@@ -7,8 +7,8 @@ use NovaPoshta\Registries\Models\Document;
 
 class InsertDocumentsResponse extends Response
 {
-    public function __construct()
+    public function setData($data, $className = Document::class)
     {
-        parent::__construct(Document::class);
+        return parent::setData($data, $className);
     }
 }

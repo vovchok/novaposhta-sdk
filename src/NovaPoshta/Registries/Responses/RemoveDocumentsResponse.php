@@ -7,8 +7,8 @@ use NovaPoshta\Registries\Models\DocumentReference;
 
 class RemoveDocumentsResponse extends Response
 {
-    public function __construct()
+    public function setData($data, $className = DocumentReference::class)
     {
-        parent::__construct(DocumentReference::class);
+        return parent::setData($data, $className);
     }
 }

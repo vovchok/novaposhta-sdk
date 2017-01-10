@@ -7,8 +7,8 @@ use NovaPoshta\Registries\Models\ScanSheetItem;
 
 class ScanSheetListResponse extends Response
 {
-    public function __construct()
+    public function setData($data, $className = ScanSheetItem::class)
     {
-        parent::__construct(ScanSheetItem::class);
+        return parent::setData($data, $className);
     }
 }

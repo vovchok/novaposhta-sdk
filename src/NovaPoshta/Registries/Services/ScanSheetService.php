@@ -12,54 +12,54 @@ use NovaPoshta\Registries\Properties\RemoveDocumentsMethodProperties;
 
 class ScanSheetService extends Service
 {
-    public function __construct(Configuration $config)
-    {
-        $this->modelName = 'ScanSheet';
+	public function __construct(Configuration $config)
+	{
+		$this->modelName = 'ScanSheet';
 
-        parent::__construct($config);
-    }
+		parent::__construct($config);
+	}
 
-    public function insertDocuments(InsertDocumentsMethodProperties $properties)
-    {
-        return $this->makeRequest(
-            'insertDocuments',
-            \NovaPoshta\Registries\Responses\InsertDocumentsResponse::class,
-            $properties
-        );
-    }
+	public function insertDocuments(InsertDocumentsMethodProperties $properties)
+	{
+		return $this->makeRequest(
+			'insertDocuments',
+			\NovaPoshta\Registries\Responses\InsertDocumentsResponse::class,
+			$properties
+		);
+	}
 
-    public function getScanSheet(ScanSheetMethodProperties $properties)
-    {
-        return $this->makeRequest(
-            'getScanSheet',
-            \NovaPoshta\Registries\Responses\ScanSheetResponse::class,
-            $properties
-        );
-    }
+	public function getScanSheet(ScanSheetMethodProperties $properties)
+	{
+		return $this->makeRequest(
+			'getScanSheet',
+			\NovaPoshta\Registries\Responses\ScanSheetResponse::class,
+			$properties
+		);
+	}
 
-    public function getScanSheetList()
-    {
-        return $this->makeRequest(
-            'getScanSheetList',
-            \NovaPoshta\Registries\Responses\ScanSheetListResponse::class
-        );
-    }
+	public function getScanSheetList()
+	{
+		return $this->makeRequest(
+			'getScanSheetList',
+			\NovaPoshta\Registries\Responses\ScanSheetListResponse::class
+		);
+	}
 
-    public function deleteScanSheet(DeleteScanSheetMethodProperties $properties)
-    {
-        return $this->makeRequest(
-            'deleteScanSheet',
-            \NovaPoshta\Registries\Responses\DeleteScanSheetResponse::class,
-            $properties
-        );
-    }
+	public function deleteScanSheet(DeleteScanSheetMethodProperties $properties)
+	{
+		return $this->makeRequest(
+			'deleteScanSheet',
+			\NovaPoshta\Registries\Responses\DeleteScanSheetResponse::class,
+			$properties
+		);
+	}
 
-    public function removeDocuments(RemoveDocumentsMethodProperties $properties)
-    {
-        return $this->makeRequest(
-            'removeDocuments',
-            \NovaPoshta\Registries\Responses\RemoveDocumentsResponse::class,
-            $properties
-        );
-    }
+	public function removeDocuments(RemoveDocumentsMethodProperties $properties)
+	{
+		return $this->makeRequest(
+			'removeDocuments',
+			\NovaPoshta\Registries\Responses\RemoveDocumentsResponse::class,
+			$properties
+		);
+	}
 }
