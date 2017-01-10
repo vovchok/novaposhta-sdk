@@ -2,7 +2,7 @@
 
 namespace NovaPoshta;
 
-class ContentTypes
+interface ContentTypes
 {
     const XML = 'xml';
     const JSON = 'json';
