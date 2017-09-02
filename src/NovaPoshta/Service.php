@@ -59,25 +59,21 @@ class Service
 
     protected function serialize($request)
     {
-        $serialized = $this->serializer->serialize(
+        return $this->serializer->serialize(
             $request,
             $this->config->contentType,
             $this->config->getSerializeContext($this->config->contentType)
         );
-
-        return $serialized;
     }
 
     protected function deserialize($content, $type)
     {
-        $deserialized = $this->serializer->deserialize(
+        return $this->serializer->deserialize(
             $content,
             $type,
             $this->config->contentType,
             $this->config->getDeserializeContext($this->config->contentType)
         );
-
-        return $deserialized;
     }
 
     protected function send($request, $content)
