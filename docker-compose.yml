@@ -1,0 +1,24 @@
+version: '3'
+services:
+  novaposhta-sdk:
+      hostname: novaposhta-sdk
+      build:
+        context: .
+        dockerfile: Dockerfile
+        args:
+          PLATFORM_VERSION: 17.2.7.0.47
+      image: novaposhta/php-sdk:dev
+      #ports:
+      #  - "9000:9000"
+      #environment:
+      #  - key=value
+      #volumes:
+      #  - ./conf/redis.conf:/etc/redis/redis.conf
+      volumes:
+        - .:/usr/src/novaposhta-sdk
+      networks:
+        - intranet
+
+networks:
+  intranet:
+    driver: bridge
